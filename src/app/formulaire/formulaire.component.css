@@ -1,0 +1,72 @@
+
+
+form{
+    height: 1400px;
+    width: 800px;
+    background-color: rgba(255,255,255,0.13);
+    position: relative;
+    transform: translate(-50%,-50%);
+    top: 780px;
+    left: 50%;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255,255,255,0.1);
+    box-shadow: 0 0 40px rgba(170, 170, 170, 0.6);
+    padding: 50px 35px;
+}
+
+@media screen and (max-width: 600px) {
+    form {
+      width: 100%;
+    }
+  }
+@media screen and (max-height: 500px) {
+    form {
+      height: auto;
+    }
+}
+
+
+.toolbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  background-color: #F8F8F8;
+  color: rgb(0, 0, 0);
+  font-weight: 600;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+}
+
+.toolbar img {
+  margin: 0 30px;
+}
+
+.btn {
+  border: none;
+  background-color: inherit;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  top: 0px;
+  left: 1300px;
+}
+
+.submit {
+  color: tomato;
+}
+
+/* On mouse-over */
+.btn:hover {background: #eee;}
+
+.success {color: green;}
+.info {color: dodgerblue;}
+.warning {color: orange;}
+.danger {color: red;}
+.default {color: black;}
+
