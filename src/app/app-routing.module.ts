@@ -13,6 +13,7 @@ const routes: Routes = [
   { path:'formulaire',component: FormulaireComponent},
   { path: 'dashboard',component: DashboardComponent},
   { path: 'dash',component: Dashboard2Component},
+  
 ];
 
 @NgModule({

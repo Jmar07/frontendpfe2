@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import * as data from '../particlesjs-config.json';
 
+declare const myTest: any;
+
+
 
 
 @Component({
@@ -9,6 +12,10 @@ import * as data from '../particlesjs-config.json';
   styleUrls: ['./index.component.css']
 })
 export class IndexComponent implements OnInit {
+
+  onClick(){
+    myTest();
+  }
 
   constructor() { }
 

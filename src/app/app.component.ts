@@ -6,18 +6,22 @@ import { Router, RouterModule } from '@angular/router';
 import { FormControl, FormGroup, Validators, FormArray,FormBuilder } from "@angular/forms";
 
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit  {
+
   title = 'projetPFE';
 
 
 
+
+
   constructor( private router: Router , private http : HttpClient, private service : ServService, private fb : FormBuilder) {
-    
+
    }
 
    ngOnInit(){

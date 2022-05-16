@@ -99,7 +99,7 @@
 
 .container {
   position: fixed;
-  left: 50%;
+  left: 80%;
   bottom: 20px;
   transform: translate(-50%, -50%);
   margin: 0 auto;
@@ -231,8 +231,8 @@ form{
       #ff512f,
       #f09819
   );
-  left: -400px;
-  top: -100px;
+  left: -360px;
+  top: -60px;
 }
 .shape:last-child{
   background: linear-gradient(
@@ -240,6 +240,6 @@ form{
       #1845ad,
       #23a2f6
   );
-  right: -390px;
-  bottom: -90px;
+  right: -350px;
+  bottom: -35px;
 }

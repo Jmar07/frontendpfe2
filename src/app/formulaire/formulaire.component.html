@@ -55,18 +55,29 @@
           </mat-error>
         </mat-form-field>
 
-        <mat-form-field style="width: 100%;">
-          <mat-label>
-              Personnel:
-            </mat-label>
-            <input matInput type="text" [matAutocomplete]="auto" [formControl]="myControl" />
-            <mat-error *ngIf="formulaireForm.controls['username'].touched && formulaireForm.controls['username'].invalid">
+      <mat-form-field style="width: 100%;">
+         <mat-label>
+             Personnel:
+          </mat-label>
+           <input matInput type="text" [matAutocomplete]="auto" [formControl]="myControl" />
+          <mat-error *ngIf="formulaireForm.controls['username'].touched && formulaireForm.controls['username'].invalid">
+             <span> This field is required </span>
+             </mat-error>
+          </mat-form-field>
+
+       <mat-form-field style="width: 100%;">
+        <mat-label>
+              Accompanying:
+          </mat-label>
+          <input matInput type="text" [matAutocomplete]="auto" [formControl]="myControl" />
+          <mat-error *ngIf="formulaireForm.controls['username'].touched && formulaireForm.controls['username'].invalid">
               <span> This field is required </span>
-              </mat-error>
-            </mat-form-field>
-  </div>
+             </mat-error>
+          </mat-form-field>
+              
+        </div>
 
-
+<!--
   <div class="was-validated">
     <label for="module">Module: </label>
     <input type="text" class="form-control" id="module" placeholder="" name="module" required>
@@ -226,6 +237,7 @@
       Champ obligatoire *
     </div>
   </div>
+  -->
 
   <input class="submit" type="submit" value="Valider">
   

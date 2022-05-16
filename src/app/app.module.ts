@@ -17,6 +17,7 @@ import { Dashboard2Component } from './dashboard2/dashboard2.component';
 import { NgParticlesModule } from "ng-particles";
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,6 +29,7 @@ import { NgParticlesModule } from "ng-particles";
     DashboardComponent,
     Dashboard2Component,
     
+    
   ],
   imports: [
     BrowserModule,
@@ -38,7 +40,9 @@ import { NgParticlesModule } from "ng-particles";
     BrowserAnimationsModule,
     MatInputModule,
     MatAutocompleteModule,
-    NgParticlesModule
+    NgParticlesModule,
+    
+
     
 
   ],
