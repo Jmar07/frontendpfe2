@@ -4,6 +4,8 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router, RouterModule } from '@angular/router';
 
+import User from "../models/User";
+
 
 @Component({
   selector: 'app-login',
@@ -20,8 +22,11 @@ export class LoginComponent implements OnInit {
   constructor( private formBuilder : FormBuilder, private http:HttpClient, private router: Router ) {
  }
 
+ user : any;
+
   ngOnInit(): void {
 
+    this.user = new User();
     
   }
 
@@ -31,6 +36,12 @@ export class LoginComponent implements OnInit {
 
 error:"";
 username:"";
+success:any
+
+redirect(){
+  this.router.navigateByUrl("/formulaire")
+}
+
 
 loginFun(){
 
@@ -47,8 +58,19 @@ loginFun(){
   
     .subscribe( (results)=> {
 
-      localStorage.setItem("username",results.toString());
-      this.router.navigateByUrl("/formulaire")
+      this.user = results;
+
+      console.log(this.user);
+      
+
+      localStorage.setItem("username","3aaa");
+      this.success = "Login success";
+
+      setTimeout(()=>{
+        this.redirect();
+      } , 2000)
+
+      
     },error=>{
       console.log(error);
       this.error = error.error;

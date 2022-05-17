@@ -32,8 +32,10 @@
     
     <mat-form-field style="width: 100%;">
       <mat-label>
-          Client:
+          Client: {{clients[0].des}}
         </mat-label>
+
+
         <input matInput type="text" [matAutocomplete]="auto" [formControl]="myControl" />
         <mat-error *ngIf="formulaireForm.controls['username'].touched && formulaireForm.controls['username'].invalid">
           <span> This field is required </span>
@@ -45,15 +47,15 @@
         </mat-autocomplete>
     </mat-form-field>
 
-    <mat-form-field style="width: 100%;">
-      <mat-label>
-          Module:
-        </mat-label>
-        <input matInput type="text" [matAutocomplete]="auto" [formControl]="myControl" />
-        <mat-error *ngIf="formulaireForm.controls['username'].touched && formulaireForm.controls['username'].invalid">
-          <span> This field is required </span>
-          </mat-error>
-        </mat-form-field>
+   
+
+    <mat-form-field appearance="fill">
+      <mat-label>Modules</mat-label>
+      <mat-select [formControl]="modules" multiple>
+        <mat-option *ngFor="let module of modulesData" [value]="module.designation">{{module.designation}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
 
       <mat-form-field style="width: 100%;">
          <mat-label>

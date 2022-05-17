@@ -10,12 +10,16 @@ import { filter, map } from 'rxjs/operators';
 })
 export class ServService {
 
-  private baseURL = "http://localhost:8000/client"
+  private baseURL = "http://localhost:8000/"
 
   constructor(private http: HttpClient) { }
 
   getData(){
-    return this.http.get(this.baseURL)
+    return this.http.get(this.baseURL+"client")
+  }
+
+  getModules(){
+    return this.http.get(this.baseURL+"module")
   }
 
   /*opts = [];*/

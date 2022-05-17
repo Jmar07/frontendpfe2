@@ -7,6 +7,13 @@ import { Router } from '@angular/router';
 import { ServService } from '../serv.service';
 
 
+
+export interface IClients{
+
+  des:String;
+
+}
+
 @Component({
   selector: 'app-formulaire',
   templateUrl: './formulaire.component.html',
@@ -20,22 +27,23 @@ export class FormulaireComponent implements OnInit {
   })
 
 
-
+  modules = new FormControl()
+  modulesData : any;
   myControl = new FormControl(); 
-
-  filteredOptions: Observable<string[]>;
-
+  clients : IClients[];
+  filteredOptions: Observable<IClients[]>;
 
   constructor( private service : ServService , private router: Router ) { }
 
   ngOnInit(): void {
 
-   /* this.filteredOptions = this.myControl.valueChanges.pipe(
-      startWith(''),
-      map(value => this._filter(value))
-    );*/
-    this.getAllData()
+    this.getAllData();
+    this.getModules();
+
   }
+
+
+
 
   logout(){
     localStorage.removeItem("username");
@@ -46,6 +54,19 @@ export class FormulaireComponent implements OnInit {
   getAllData(){
     this.service.getData().subscribe((res: any) => {
       console.log(res);
+      this.clients = res;
+      console.log(this.clients);
+      
+
+    })
+  }
+
+
+  getModules(){
+    this.service.getModules().subscribe((res: any) => {
+      console.log(res);
+      this.modulesData = res;
+
     })
   }
 

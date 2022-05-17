@@ -15,7 +15,7 @@ import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { Dashboard2Component } from './dashboard2/dashboard2.component';
 import { NgParticlesModule } from "ng-particles";
-
+import {MatSelectModule} from '@angular/material/select';
 
 
 @NgModule({
@@ -41,6 +41,7 @@ import { NgParticlesModule } from "ng-particles";
     MatInputModule,
     MatAutocompleteModule,
     NgParticlesModule,
+    MatSelectModule
     
 
     
