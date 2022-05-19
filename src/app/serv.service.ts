@@ -14,7 +14,7 @@ export class ServService {
 
   constructor(private http: HttpClient) { }
 
-  getData(){
+  getClient(){
     return this.http.get(this.baseURL+"client")
   }
 

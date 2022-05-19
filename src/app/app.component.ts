@@ -25,11 +25,11 @@ export class AppComponent implements OnInit  {
    }
 
    ngOnInit(){
-      this.getAllData();
+      this.getClients();
    }
 
-   getAllData(){
-    this.service.getData().subscribe((res: any) => {
+   getClients(){
+    this.service.getClient().subscribe((res: any) => {
       console.log(res);
     })
   }

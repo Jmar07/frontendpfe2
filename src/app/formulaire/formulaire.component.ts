@@ -37,7 +37,7 @@ export class FormulaireComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.getAllData();
+    this.getClients();
     this.getModules();
 
   }
@@ -51,8 +51,8 @@ export class FormulaireComponent implements OnInit {
     
   }
 
-  getAllData(){
-    this.service.getData().subscribe((res: any) => {
+  getClients(){
+    this.service.getClient().subscribe((res: any) => {
       console.log(res);
       this.clients = res;
       console.log(this.clients);

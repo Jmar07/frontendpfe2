@@ -16,6 +16,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { Dashboard2Component } from './dashboard2/dashboard2.component';
 import { NgParticlesModule } from "ng-particles";
 import {MatSelectModule} from '@angular/material/select';
+import { NgChartsModule } from 'ng2-charts';
+
 
 
 @NgModule({
@@ -41,7 +43,8 @@ import {MatSelectModule} from '@angular/material/select';
     MatInputModule,
     MatAutocompleteModule,
     NgParticlesModule,
-    MatSelectModule
+    MatSelectModule,
+    NgChartsModule
     
 
     
