@@ -17,6 +17,13 @@ import { Dashboard2Component } from './dashboard2/dashboard2.component';
 import { NgParticlesModule } from "ng-particles";
 import {MatSelectModule} from '@angular/material/select';
 import { NgChartsModule } from 'ng2-charts';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatBadgeModule} from '@angular/material/badge';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+
+
+
 
 
 
@@ -44,7 +51,12 @@ import { NgChartsModule } from 'ng2-charts';
     MatAutocompleteModule,
     NgParticlesModule,
     MatSelectModule,
-    NgChartsModule
+    NgChartsModule,
+    MatDatepickerModule,
+    MatBadgeModule,
+    MatSnackBarModule,
+    MatCheckboxModule
+    
     
 
     

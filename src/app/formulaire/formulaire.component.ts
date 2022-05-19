@@ -5,9 +5,18 @@ import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { ServService } from '../serv.service';
+import {ThemePalette} from '@angular/material/core';
 
 
+/* Signature */
+export interface Task {
+  name: string;
+  completed: boolean;
+  color: ThemePalette;
+  subtasks?: Task[];
+}
 
+/* Clients */
 export interface IClients{
 
   des:String;
@@ -20,6 +29,39 @@ export interface IClients{
   styleUrls: ['./formulaire.component.css']
 })
 export class FormulaireComponent implements OnInit {
+  
+  /* Signature */
+  task: Task = {
+    name: 'Indeterminate',
+    completed: false,
+    color: 'primary',
+    subtasks: [
+      {name: 'Primary', completed: false, color: 'primary'},
+      {name: 'Accent', completed: false, color: 'accent'},
+      {name: 'Warn', completed: false, color: 'warn'},
+    ],
+  };
+  allComplete: boolean = false;
+
+  updateAllComplete() {
+    this.allComplete = this.task.subtasks != null && this.task.subtasks.every(t => t.completed);
+  }
+
+  someComplete(): boolean {
+    if (this.task.subtasks == null) {
+      return false;
+    }
+    return this.task.subtasks.filter(t => t.completed).length > 0 && !this.allComplete;
+  }
+
+  setAll(completed: boolean) {
+    this.allComplete = completed;
+    if (this.task.subtasks == null) {
+      return;
+    }
+    this.task.subtasks.forEach(t => (t.completed = completed));
+  }
+
 
   formulaireForm = new FormGroup({
     username: new FormControl(null , Validators.required),
@@ -30,10 +72,11 @@ export class FormulaireComponent implements OnInit {
   modules = new FormControl()
   modulesData : any;
   myControl = new FormControl(); 
-  clients : IClients[];
+  clients = new FormControl();
+  clientsData : any;
   filteredOptions: Observable<IClients[]>;
 
-  constructor( private service : ServService , private router: Router ) { }
+  constructor( private service : ServService , private router: Router, private fb: FormBuilder ) { }
 
   ngOnInit(): void {
 
@@ -55,9 +98,7 @@ export class FormulaireComponent implements OnInit {
     this.service.getClient().subscribe((res: any) => {
       console.log(res);
       this.clients = res;
-      console.log(this.clients);
       
-
     })
   }
 

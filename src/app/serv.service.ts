@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { response } from 'express';
-import { of, pipe } from 'rxjs';
-import { filter, map } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
+
+
 
 
 @Injectable({
@@ -17,6 +17,7 @@ export class ServService {
   getClient(){
     return this.http.get(this.baseURL+"client")
   }
+
 
   getModules(){
     return this.http.get(this.baseURL+"module")
