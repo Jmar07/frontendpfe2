@@ -6,6 +6,7 @@ import { map, startWith } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { ServService } from '../serv.service';
 import {ThemePalette} from '@angular/material/core';
+import {PostsService} from '../posts.service';
 
 
 /* Signature */
@@ -23,12 +24,18 @@ export interface IClients{
 
 }
 
+export interface IAcc{
+
+  nomAcc:String
+}
+
 @Component({
   selector: 'app-formulaire',
   templateUrl: './formulaire.component.html',
   styleUrls: ['./formulaire.component.css']
 })
 export class FormulaireComponent implements OnInit {
+
   
   /* Signature */
   task: Task = {
@@ -42,7 +49,12 @@ export class FormulaireComponent implements OnInit {
     ],
   };
   allComplete: boolean = false;
+  clients : IClients[]
+  accomps : IAcc[]
+  
 
+  clientModel = ""
+ 
   updateAllComplete() {
     this.allComplete = this.task.subtasks != null && this.task.subtasks.every(t => t.completed);
   }
@@ -63,25 +75,50 @@ export class FormulaireComponent implements OnInit {
   }
 
 
-  formulaireForm = new FormGroup({
-    username: new FormControl(null , Validators.required),
-    password: new FormControl(null , Validators.required)    
-  })
+  success:any
 
-
-  modules = new FormControl()
   modulesData : any;
-  myControl = new FormControl(); 
-  clients = new FormControl();
+
   clientsData : any;
   filteredOptions: Observable<IClients[]>;
 
-  constructor( private service : ServService , private router: Router, private fb: FormBuilder ) { }
+  constructor( private service : ServService , private router: Router, private fb: FormBuilder, private postsService: PostsService ) { }
 
+  sendData(event:any){
+    let query: string = event.target.value;
+
+    this.postsService.searchClients(query.trim()).subscribe(results => {
+      console.log(results); 
+    });
+  }
+
+  formform:FormGroup
   ngOnInit(): void {
+
+    
+    this.formform = new  FormGroup({
+
+      clientsInput : new FormControl(null,Validators.required),
+      moduleInput : new FormControl(null,Validators.required),
+      personnelInput : new FormControl(null),
+      AccompanyingInput : new FormControl(null),
+      startDateInput : new FormControl(null,Validators.required),
+      endDateInput : new FormControl(null,Validators.required),
+      startTimeInput : new FormControl(null,Validators.required),
+      endTimeInput :new FormControl(null,Validators.required),
+      numberSheetInput :new FormControl(null,Validators.required),
+      signatureInput :new FormControl(null),
+      fileInput : new FormControl(null),
+      rapportInput : new FormControl(null,Validators.required),
+      hours:new FormControl(0,Validators.min(0)),
+      minutes:new FormControl(0, [Validators.min(0) , Validators.max(55)])
+
+  
+    })
 
     this.getClients();
     this.getModules();
+    this.getAcc();
 
   }
 
@@ -102,13 +139,50 @@ export class FormulaireComponent implements OnInit {
     })
   }
 
+  getAcc(){
+    this.service.getAcc().subscribe((res:any)=>{
+
+      console.log(res);
+      this.accomps = res;
+
+    })
+  }
 
   getModules(){
     this.service.getModules().subscribe((res: any) => {
       console.log(res);
       this.modulesData = res;
 
+    } , error=>{
+      console.log(error);
+      
     })
+  }
+
+  redirect(){
+    this.router.navigateByUrl("/entrer")
+  }
+  
+  valide(){
+   
+    if(!this.formform.valid){
+      return;
+    } 
+   console.log(this.formform.value);
+   
+    this.service.saveData(this.formform.value).subscribe((res:any)=>{
+      console.log(res);
+      
+    })
+
+    this.success = "Ajouter avec succès";
+
+    setTimeout(()=>{
+      this.redirect();
+    } , 2000)
+    
+  
+    
   }
 
 /*

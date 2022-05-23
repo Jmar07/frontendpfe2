@@ -39,7 +39,7 @@ username:"";
 success:any
 
 redirect(){
-  this.router.navigateByUrl("/formulaire")
+  this.router.navigateByUrl("/entrer")
 }
 
 
@@ -64,7 +64,7 @@ loginFun(){
       
 
       localStorage.setItem("username","3aaa");
-      this.success = "Login success";
+      this.success = "Connexion réussie";
 
       setTimeout(()=>{
         this.redirect();

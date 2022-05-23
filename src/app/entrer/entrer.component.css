@@ -1,0 +1,187 @@
+:host {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 14px;
+    color: #333;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 8px 0;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  .spacer {
+    flex: 1;
+  }
+  
+
+
+  .toolbar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    background-color: #F8F8F8;
+    color: rgb(0, 0, 0);
+    font-weight: 600;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+  }
+
+  .toolbar img {
+    margin: 0 30px;
+  }
+  
+  /* Responsive Styles */
+  @media screen and (max-width: 767px) {
+    .card-container > *:not(.circle-link) ,
+    .terminal {
+      width: 100%;
+    }
+
+    .card:not(.highlight-card) {
+      height: 16px;
+      margin: 8px 0;
+    }
+
+    .card.highlight-card span {
+      margin-left: 72px;
+    }
+
+    svg#rocket-smoke {
+      right: 120px;
+      transform: rotate(-5deg);
+    }
+  }
+
+  @media screen and (max-width: 575px) {
+    svg#rocket-smoke {
+      display: none;
+      visibility: hidden;
+    }
+  }
+
+  .btn {
+    border: none;
+    background-color: inherit;
+    padding: 14px 17px;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    top: 0px;
+    left: 1020px;
+  }
+  
+  /* On mouse-over */
+  .btn:hover {background: #eee;}
+  
+  .success {color: green;}
+  .info {color: dodgerblue;}
+  .warning {color: orange;}
+  .danger {color: red;}
+  .default {color: black;}
+
+
+  .menu{
+    position: absolute;
+    right: -15px;
+    top: 10%;
+    width: 100px;
+    height: 120px;
+  
+  }
+
+  .middle {
+    position: absolute;
+    top: 50%;
+    left: -10%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .btn0{
+    /*margin-top: 50px;
+    width: 100%;
+    background-color: #ebe6e6;
+    color: #080710;
+    padding: 15px 0;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;*/
+    display: block;
+    margin-top: 10px;
+    width: 200px;
+    position: absolute;
+    left: 1050px;
+    height: 50px;
+    border-radius: 25px;
+    margin: 1rem e;
+    font-size: 18px;
+    font-weight: 500;
+    outline: none;
+    border: none;
+    background: #70e1f5;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #ffd194, #70e1f5);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #ffd194, #70e1f5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+    cursor: pointer;
+    color: black;
+    background-size: 200%;
+    transition: .5s;
+    
+  }
+  .btn0:hover{
+    background-position: right;
+  }
+
+  .btn1{
+    /*margin-top: 50px;
+    width: 100%;
+    background-color: #ebe6e6;
+    color: #080710;
+    padding: 15px 0;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;*/
+    display: block;
+    margin-top: 10px;
+    width: 200px;
+    position: absolute;
+    left: 750px;
+    height: 50px;
+    border-radius: 25px;
+    margin: 1rem e;
+    font-size: 18px;
+    font-weight: 500;
+    outline: none;
+    border: none;
+    background: #70e1f5;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #ffd194, #70e1f5);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #ffd194, #70e1f5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+    cursor: pointer;
+    color: black;
+    background-size: 200%;
+    transition: .5s;
+    
+  }
+  .btn1:hover{
+    background-position: right;
+  }
+

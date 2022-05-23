@@ -12,6 +12,8 @@ import { BaseChartDirective } from 'ng2-charts';
 export class DashboardComponent implements OnInit {
   @ViewChild(BaseChartDirective) chart: BaseChartDirective | undefined;
 
+  showFiller = false;
+
   public pieChartOptions: ChartConfiguration['options'] = {
     responsive: true,
     plugins: {

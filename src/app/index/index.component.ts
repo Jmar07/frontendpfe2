@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as data from '../particlesjs-config.json';
+import { Router, RouterModule } from '@angular/router';
 
 declare const myTest: any;
 
@@ -13,11 +14,17 @@ declare const myTest: any;
 })
 export class IndexComponent implements OnInit {
 
+  
+
+  goToPage(pageName:string):void{
+    this.router.navigate([`${pageName}`]);
+  }
+
   onClick(){
     myTest();
   }
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }

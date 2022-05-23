@@ -21,8 +21,17 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatCheckboxModule} from '@angular/material/checkbox';
-
-
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatNativeDateModule} from "@angular/material/core"
+import {
+  NgxMatDatetimePickerModule,
+  NgxMatNativeDateModule,
+  NgxMatTimepickerModule
+} from '@angular-material-components/datetime-picker';
+import { EntrerComponent } from './entrer/entrer.component';
 
 
 
@@ -37,6 +46,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     LoginComponent,
     DashboardComponent,
     Dashboard2Component,
+    EntrerComponent,
+    
     
     
   ],
@@ -55,8 +66,17 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatDatepickerModule,
     MatBadgeModule,
     MatSnackBarModule,
-    MatCheckboxModule
-    
+    MatCheckboxModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatSidenavModule,
+    MatMenuModule,
+    MatNativeDateModule,
+    NgxMatDatetimePickerModule,
+    NgxMatTimepickerModule,
+    NgxMatNativeDateModule,
+
+
     
 
     

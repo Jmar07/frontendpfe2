@@ -22,6 +22,18 @@ export class ServService {
   getModules(){
     return this.http.get(this.baseURL+"module")
   }
+  
+  
+  saveData(form:any){
+    return this.http.post(this.baseURL+"form",form)
+  }
+
+
+  getAcc(){
+    return this.http.get(this.baseURL+"accomp")
+  }
+
+
 
   /*opts = [];*/
 

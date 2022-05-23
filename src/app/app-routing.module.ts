@@ -1,3 +1,4 @@
+import { EntrerComponent } from './entrer/entrer.component';
 import { MyguardGuard } from './myguard.guard';
 import { Dashboard2Component } from './dashboard2/dashboard2.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path:'formulaire',component: FormulaireComponent , canActivate:[MyguardGuard]},
   { path: 'dashboard',component: DashboardComponent , canActivate:[MyguardGuard]},
   { path: 'dash',component: Dashboard2Component , canActivate:[MyguardGuard]},
+  { path: 'entrer',component: EntrerComponent}
   
 ];
 
