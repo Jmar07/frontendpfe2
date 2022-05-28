@@ -29,11 +29,38 @@ export class ServService {
   }
 
 
+  getPers(id:any){
+    console.log(id);
+    
+    return this.http.get(this.baseURL+`personnel/${id}`);
+  }
+
   getAcc(){
     return this.http.get(this.baseURL+"accomp")
   }
 
 
+  saveModule(idForm : String , moduleId:number ){
+    const module = {idForm , moduleId}
+
+  console.log(module);
+
+
+    return this.http.post(this.baseURL+"formModule",module);
+  }
+
+  getForm(id:number){
+      return this.http.get(this.baseURL+`form/${id}`)
+  }
+
+  getModulesDes(id:number){
+      return this.http.get(this.baseURL+`module/${id}`)
+  }
+
+  getModuleByIdForm(id:any):any{
+    return this.http.get(this.baseURL+`moduleForm/${id}`)
+
+  }
 
   /*opts = [];*/
 

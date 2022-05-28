@@ -29,7 +29,7 @@
   
   <div class="container">
 
-        <mat-form-field appearance="fill" style="width: 100%;">
+       <!--  <mat-form-field appearance="fill" style="width: 100%;">
           <mat-label>Client</mat-label>
           <mat-select  formControlName="clientsInput">
             <mat-option>--</mat-option>
@@ -37,32 +37,47 @@
               {{client.des}}
             </mat-option>
           </mat-select>
-         <!--  <mat-error *ngIf="client.hasError('required')">Please choose a client</mat-error>
-          <mat-hint>{{client.value?.sound}}</mat-hint> -->
+          <mat-error *ngIf="client.hasError('required')">Please choose a client</mat-error>
+          <mat-hint>{{client.value?.sound}}</mat-hint> 
         </mat-form-field>
+ -->
 
-        
-          
-        <mat-error *ngIf="formform.controls['clientsInput'].touched && formform.controls['clientsInput'].invalid">
-          <span> This field is required </span>
-  
-          </mat-error>
-
-
-        <mat-autocomplete #auto="matAutocomplete">
+ <mat-form-field class="example-full-width" appearance="fill" style="width: 100%;">
+  <mat-label>Clients</mat-label>
+  <input type="text" 
+         placeholder="Pick one"
+         aria-label="Number"
+         matInput
+         [formControl]="myControl"
+         [matAutocomplete]="auto"
+         >
+  <mat-autocomplete #auto="matAutocomplete"  (optionSelected)="test($event)">
+    <mat-option *ngFor="let client of clients | async " [value]="client.des">
+      {{client.des}}  
+    </mat-option>
+  </mat-autocomplete>
+</mat-form-field>
+    
+<!--         <mat-autocomplete #auto="matAutocomplete">
           <mat-option *ngFor="let client of clientsData" value="client.des">{{client.des}}</mat-option>
-        </mat-autocomplete>
+        </mat-autocomplete> -->
 
 
     <mat-form-field appearance="fill" style="width: 100%;">
       <mat-label>Module</mat-label>
-      <mat-select formControlName="moduleInput"    multiple>
-        <mat-option *ngFor="let module of modulesData" [value]="module.designation">{{module.designation}}</mat-option>
+      <input type="hidden" formControlName="moduleValue">
+      <mat-select formControlName="moduleInput"  multiple>
+        <mat-option *ngFor="let module of modulesData" [value]="module.IdModule">{{module.designation}}</mat-option>
       </mat-select>
       <mat-error *ngIf="formform.controls['moduleInput'].touched && formform.controls['moduleInput'].invalid">
         <span> This field is required </span>
 
         </mat-error>
+        <mat-autocomplete #auto="matAutocomplete"  (optionSelected)="test($event)">
+          <mat-option *ngFor="let module of modulesData | async " [value]="module.IdModule">
+            {{module.designation}}  
+          </mat-option>
+        </mat-autocomplete>
     </mat-form-field>
 
 
@@ -70,8 +85,10 @@
          <mat-label>
              Personnel:
           </mat-label>
-           <input formControlName="personnelInput" matInput type="text" [matAutocomplete]="auto"  />
-            
+           
+           <mat-select formControlName="personnelInput">
+            <mat-option *ngFor="let per of pers" [value]="per.Login">{{per.Login}}</mat-option>
+          </mat-select>
           </mat-form-field>
 
 
@@ -185,6 +202,10 @@
 
   <input class="submit" type="submit"  value="Valider">
   
+<mat-select>
+  <mat-option *ngFor="let per of userModules" [value]="per[0].designation">{{per[0].designation}}</mat-option>
+</mat-select>
  
   
 </form>
+

@@ -1,3 +1,4 @@
+import { v4 } from './../../../node_modules/@types/uuid/index.d';
 import { ValueConverter } from '@angular/compiler/src/render3/view/template';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators, FormArray,FormBuilder } from "@angular/forms";
@@ -7,7 +8,9 @@ import { Router } from '@angular/router';
 import { ServService } from '../serv.service';
 import {ThemePalette} from '@angular/material/core';
 import {PostsService} from '../posts.service';
+import * as uuid from 'uuid';
 
+import { v4 as uuidv4 } from 'uuid';
 
 /* Signature */
 export interface Task {
@@ -21,6 +24,7 @@ export interface Task {
 export interface IClients{
 
   des:String;
+  id:String
 
 }
 
@@ -28,6 +32,13 @@ export interface IAcc{
 
   nomAcc:String
 }
+
+export interface IModules{
+
+  designation:String;
+
+}
+
 
 @Component({
   selector: 'app-formulaire',
@@ -49,7 +60,22 @@ export class FormulaireComponent implements OnInit {
     ],
   };
   allComplete: boolean = false;
-  clients : IClients[]
+  clients :Observable<any[]>
+
+  modules :Observable<any[]>
+
+  
+   idClient : IClients[] = []
+
+   idModule : IModules[] = []
+
+
+
+   pers : any
+
+  copyclients : any[]
+  copymodules : any[]
+
   accomps : IAcc[]
   
 
@@ -74,8 +100,13 @@ export class FormulaireComponent implements OnInit {
     this.task.subtasks.forEach(t => (t.completed = completed));
   }
 
+  myControl = new FormControl(null,Validators.required);
+
+  
 
   success:any
+
+
 
   modulesData : any;
 
@@ -94,12 +125,14 @@ export class FormulaireComponent implements OnInit {
 
   formform:FormGroup
   ngOnInit(): void {
+    this.idForm = uuid.v1()
 
     
     this.formform = new  FormGroup({
 
       clientsInput : new FormControl(null,Validators.required),
       moduleInput : new FormControl(null,Validators.required),
+      moduleValue : new FormControl(null),
       personnelInput : new FormControl(null),
       AccompanyingInput : new FormControl(null),
       startDateInput : new FormControl(null,Validators.required),
@@ -119,11 +152,79 @@ export class FormulaireComponent implements OnInit {
     this.getClients();
     this.getModules();
     this.getAcc();
+    this.getModulesDes()
 
   }
 
+  getPers(){
+
+console.log(this.myControl.value);
+
+this.formform.controls["clientsInput"].setValue(this.myControl.value)
+
+    this.service.getPers(this.idClient[0].id).subscribe(res=>{
+
+      console.log(res);
+      
+      this.pers = res;
+    })
+
+  }
+
+userModules = new Array()
+
+formData : any;
+  getModulesDes(){
 
 
+      this.service.getForm(22).subscribe(res=>{
+
+        console.log(res);
+
+       this.formData = res;
+
+      let moduleInput =  this.formData[0].moduleInput
+console.log("module input : "+moduleInput);
+
+      this.service.getModuleByIdForm(moduleInput).subscribe((res: any)=>{
+        console.log(res);
+        
+        for(let i = 0 ; i < res.length ; i++){
+
+          console.log(res[i].module);
+          
+          this.service.getModulesDes(res[i].module).subscribe(res=>{
+            console.log(res);
+            this.userModules.push(res)
+          })
+
+        }
+
+      })
+        
+      })
+
+
+  }
+
+test(event:any){
+  console.log(event.option.value);
+  const des = event.option.value;
+  const designation = event.option.value;
+  
+
+  this.idClient =  this.copyclients.filter(client=>{
+    return client.des == des
+  })
+
+
+this.getPers()
+
+
+}
+
+// uuid
+idForm : String
 
   logout(){
     localStorage.removeItem("username");
@@ -134,8 +235,13 @@ export class FormulaireComponent implements OnInit {
   getClients(){
     this.service.getClient().subscribe((res: any) => {
       console.log(res);
-      this.clients = res;
-      
+      this.copyclients = res;
+      this.clients = this.myControl.valueChanges.pipe(
+        startWith(''),
+        map(value =>{
+          console.log(value)
+          return this._filter(value)}),
+      );
     })
   }
 
@@ -148,7 +254,7 @@ export class FormulaireComponent implements OnInit {
     })
   }
 
-  getModules(){
+   getModules(){
     this.service.getModules().subscribe((res: any) => {
       console.log(res);
       this.modulesData = res;
@@ -157,7 +263,7 @@ export class FormulaireComponent implements OnInit {
       console.log(error);
       
     })
-  }
+  } 
 
   redirect(){
     this.router.navigateByUrl("/entrer")
@@ -165,11 +271,16 @@ export class FormulaireComponent implements OnInit {
   
   valide(){
    
+    this.showListOfModules();
+   
     if(!this.formform.valid){
+      
       return;
     } 
    console.log(this.formform.value);
    
+   this.formform.controls["moduleValue"].setValue(this.idForm)
+
     this.service.saveData(this.formform.value).subscribe((res:any)=>{
       console.log(res);
       
@@ -184,11 +295,42 @@ export class FormulaireComponent implements OnInit {
   
     
   }
-
-/*
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
-    return this.options.filter(option => option.toLowerCase().includes(filterValue)
-    );
-  }*/
+
+
+    return this.copyclients.filter(option => option?.des.toLowerCase().includes(filterValue));
+
+  }
+
+
+
+
+
+showListOfModules(){
+
+  console.log(this.formform.controls["moduleInput"].value);
+  
+  // get array of if modules
+  const modulesArray = this.formform.controls["moduleInput"].value
+ 
+
+  for(let i=0 ; i< modulesArray.length ; i++){
+    
+
+    this.service.saveModule(this.idForm,modulesArray[i]).subscribe((res:any)=>{
+
+      console.log(res);
+      
+  
+    })
+
+  }
+  
+
+
+
+}
+
+
 }

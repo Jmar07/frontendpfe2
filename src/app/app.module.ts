@@ -32,6 +32,12 @@ import {
   NgxMatTimepickerModule
 } from '@angular-material-components/datetime-picker';
 import { EntrerComponent } from './entrer/entrer.component';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { DashComponent } from './dash/dash.component';
+import { v4 as uuidv4 } from 'uuid';
+
+
+
 
 
 
@@ -47,12 +53,16 @@ import { EntrerComponent } from './entrer/entrer.component';
     DashboardComponent,
     Dashboard2Component,
     EntrerComponent,
+    DashComponent,
+    
+    
     
     
     
   ],
   imports: [
     BrowserModule,
+    
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
@@ -75,10 +85,9 @@ import { EntrerComponent } from './entrer/entrer.component';
     NgxMatDatetimePickerModule,
     NgxMatTimepickerModule,
     NgxMatNativeDateModule,
-
-
+    MDBBootstrapModule,
     
-
+    
     
 
   ],
