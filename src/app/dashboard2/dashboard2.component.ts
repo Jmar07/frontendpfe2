@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import {MatSidenav} from '@angular/material/sidenav';
+
 
 
 declare const myTest: any;
@@ -11,6 +13,19 @@ declare const myTest: any;
   styleUrls: ['./dashboard2.component.css']
 })
 export class Dashboard2Component implements OnInit {
+
+  
+
+  @ViewChild('sidenav') sidenav: MatSidenav;
+
+  reason = '';
+
+  close(reason: string) {
+    this.reason = reason;
+    this.sidenav.close();
+  }
+
+  shouldRun = /(^|.)(stackblitz|webcontainer).(io|com)$/.test(window.location.host);
   /*myScriptElement: HTMLScriptElement;
 
   constructor() { 

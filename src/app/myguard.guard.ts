@@ -12,12 +12,12 @@ export class MyguardGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
       if(localStorage.getItem("username")){
-        console.log("rani mawjoud");
+        console.log("MyGuard is activated");
         
         return true;
        
       }
-      console.log("mahouch mawjoud ");
+      console.log("MyGuard is not activated! ");
       
     return false;
   }

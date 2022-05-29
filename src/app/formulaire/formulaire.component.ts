@@ -67,14 +67,9 @@ export class FormulaireComponent implements OnInit {
   
    idClient : IClients[] = []
 
-   idModule : IModules[] = []
-
-
-
    pers : any
 
   copyclients : any[]
-  copymodules : any[]
 
   accomps : IAcc[]
   
@@ -128,8 +123,12 @@ export class FormulaireComponent implements OnInit {
     this.idForm = uuid.v1()
 
     
-    this.formform = new  FormGroup({
+   
 
+    
+    this.formform = new  FormGroup({
+      clientID:new FormControl(null),
+      dateInput:new FormControl(null),
       clientsInput : new FormControl(null,Validators.required),
       moduleInput : new FormControl(null,Validators.required),
       moduleValue : new FormControl(null),
@@ -142,6 +141,9 @@ export class FormulaireComponent implements OnInit {
       numberSheetInput :new FormControl(null,Validators.required),
       signatureInput :new FormControl(null),
       fileInput : new FormControl(null),
+      chauffeurInput : new FormControl(null),
+      startTimeInput2 : new FormControl(null),
+      endTimeInput2 :new FormControl(null),
       rapportInput : new FormControl(null,Validators.required),
       hours:new FormControl(0,Validators.min(0)),
       minutes:new FormControl(0, [Validators.min(0) , Validators.max(55)])
@@ -176,8 +178,13 @@ userModules = new Array()
 formData : any;
   getModulesDes(){
 
+console.log(this.idClient);
 
-      this.service.getForm(22).subscribe(res=>{
+   const id = this.idClient[0].id;
+   const client = this.idClient[0].des 
+
+
+      this.service.getForm(id).subscribe(res=>{
 
         console.log(res);
 
@@ -193,7 +200,7 @@ console.log("module input : "+moduleInput);
 
           console.log(res[i].module);
           
-          this.service.getModulesDes(res[i].module).subscribe(res=>{
+          this.service.getModulesDes(res[i].module).subscribe((res: any)=>{
             console.log(res);
             this.userModules.push(res)
           })
@@ -218,7 +225,13 @@ test(event:any){
   })
 
 
+
+  console.log(this.idClient[0].id);
+  
+this.formform.controls["clientID"].setValue(this.idClient[0].id)
+
 this.getPers()
+this.getModulesDes()
 
 
 }
@@ -281,6 +294,16 @@ idForm : String
    
    this.formform.controls["moduleValue"].setValue(this.idForm)
 
+   var currentdate = new Date(); 
+   var datetime = currentdate.getDate() + "/"
+                   + (currentdate.getMonth()+1)  + "/" 
+                   + currentdate.getFullYear()+" " 
+                   + currentdate.getHours() + ":"  
+                   + currentdate.getMinutes() + ":" 
+                   + currentdate.getSeconds();
+
+    this.formform.controls["dateInput"].setValue(datetime)
+    
     this.service.saveData(this.formform.value).subscribe((res:any)=>{
       console.log(res);
       

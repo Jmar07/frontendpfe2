@@ -12,7 +12,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { IndexComponent } from './index/index.component';
 import { LoginComponent } from './login/login.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { Dashboard1Component } from './dashboard/dashboard.component';
 import { Dashboard2Component } from './dashboard2/dashboard2.component';
 import { NgParticlesModule } from "ng-particles";
 import {MatSelectModule} from '@angular/material/select';
@@ -33,8 +33,17 @@ import {
 } from '@angular-material-components/datetime-picker';
 import { EntrerComponent } from './entrer/entrer.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
-import { DashComponent } from './dash/dash.component';
 import { v4 as uuidv4 } from 'uuid';
+import {MatCardModule} from '@angular/material/card';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { RealiseComponent } from './realise/realise.component';
+
+
+
+import {MatTableModule} from '@angular/material/table';
+import { ModuleDialogComponent } from './module-dialog/module-dialog.component';
+
 
 
 
@@ -50,19 +59,19 @@ import { v4 as uuidv4 } from 'uuid';
     FormulaireComponent,
     IndexComponent,
     LoginComponent,
-    DashboardComponent,
+    Dashboard1Component,
     Dashboard2Component,
     EntrerComponent,
-    DashComponent,
+    RealiseComponent,
+    ModuleDialogComponent,
     
-    
+
     
     
     
   ],
   imports: [
     BrowserModule,
-    
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
@@ -86,6 +95,10 @@ import { v4 as uuidv4 } from 'uuid';
     NgxMatTimepickerModule,
     NgxMatNativeDateModule,
     MDBBootstrapModule,
+    MatCardModule,
+    MatDividerModule,
+    MatPaginatorModule,
+    MatTableModule
     
     
     

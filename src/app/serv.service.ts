@@ -1,3 +1,4 @@
+import { Realise } from './realise/realise.component';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
@@ -49,15 +50,23 @@ export class ServService {
     return this.http.post(this.baseURL+"formModule",module);
   }
 
-  getForm(id:number){
+  getForm(id:any){
+    console.log("from service get form"+id);
+    
       return this.http.get(this.baseURL+`form/${id}`)
   }
 
-  getModulesDes(id:number){
+  getListOfForms(){
+    
+      return this.http.get(this.baseURL+`form`)
+  }
+
+
+  getModulesDes(id:number):any{
       return this.http.get(this.baseURL+`module/${id}`)
   }
 
-  getModuleByIdForm(id:any):any{
+  getModuleByIdForm(id:any){
     return this.http.get(this.baseURL+`moduleForm/${id}`)
 
   }

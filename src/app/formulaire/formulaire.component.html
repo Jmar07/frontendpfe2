@@ -45,7 +45,7 @@
  <mat-form-field class="example-full-width" appearance="fill" style="width: 100%;">
   <mat-label>Clients</mat-label>
   <input type="text" 
-         placeholder="Pick one"
+         placeholder="Choisissez un client"
          aria-label="Number"
          matInput
          [formControl]="myControl"
@@ -73,11 +73,6 @@
         <span> This field is required </span>
 
         </mat-error>
-        <mat-autocomplete #auto="matAutocomplete"  (optionSelected)="test($event)">
-          <mat-option *ngFor="let module of modulesData | async " [value]="module.IdModule">
-            {{module.designation}}  
-          </mat-option>
-        </mat-autocomplete>
     </mat-form-field>
 
 
@@ -109,10 +104,9 @@
           <mat-form-field appearance="fill" style="width:100% ;">
             <mat-label>Entrez la date de début et la date de fin</mat-label>
             <mat-date-range-input [rangePicker]="picker">
-              <input matStartDate formControlName="startDateInput" placeholder="Start date">
-              <input matEndDate formControlName="endDateInput" placeholder="End date">
+              <input matStartDate formControlName="startDateInput" placeholder="Date début">
+              <input matEndDate formControlName="endDateInput" placeholder="Date fin">
             </mat-date-range-input>
-            <mat-hint>Date début – Date fin</mat-hint>
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-date-range-picker #picker></mat-date-range-picker>
           
@@ -123,7 +117,7 @@
           
           <br>
 
-          <label>Durée</label>
+          <label>Duration</label>
           <mat-form-field class="example-user-input" appearance="fill">
             <mat-label> Heures </mat-label>
             <input matInput type="number" formControlName="hours"
@@ -162,7 +156,7 @@
             <input formControlName="fileInput" type="file" class="" id="attachapicture" name="pic">
             <br>
             <br>
-           <!--  <hr>
+             <hr>
 
             <div class="" style="background: none;">
               <div class="card-body">
@@ -171,22 +165,22 @@
             </div>
 
             <mat-form-field class="example-full-width" appearance="fill" style="width:100% ;">
-              <mat-label>Chauffeur</mat-label>
-              <input matInput placeholder="" value="">
+              <mat-label>Nom du chauffeur</mat-label>
+              <input formControlName="chauffeurInput" matInput placeholder="" value="">
             </mat-form-field>
             <br>
 
             <div class="timepos2">
-              <mat-label> Heure de début </mat-label>
-                <ngx-mat-timepicker formControlName="startTimeInput">
+              <mat-label> Heure de départ </mat-label>
+                <ngx-mat-timepicker formControlName="startTimeInput2">
                 </ngx-mat-timepicker>
               </div>
     
               <div class="endpos2">
-                <mat-label> Heure de fin </mat-label>
-                <ngx-mat-timepicker formControlName="endTimeInput">
+                <mat-label> Heure d'arrivée </mat-label>
+                <ngx-mat-timepicker formControlName="endTimeInput2">
                 </ngx-mat-timepicker>
-              </div> -->
+              </div> 
 
 
             <mat-form-field class="example-full-width" appearance="fill" style="width: 100%;">

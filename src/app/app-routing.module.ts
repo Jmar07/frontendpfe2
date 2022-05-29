@@ -1,8 +1,8 @@
-import { DashComponent } from './dash/dash.component';
+import { RealiseComponent } from './realise/realise.component';
 import { EntrerComponent } from './entrer/entrer.component';
 import { MyguardGuard } from './myguard.guard';
 import { Dashboard2Component } from './dashboard2/dashboard2.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { Dashboard1Component } from './dashboard/dashboard.component';
 import { IndexComponent } from './index/index.component';
 import { LoginComponent } from './login/login.component';
 import { NgModule, Component } from '@angular/core';
@@ -15,10 +15,11 @@ const routes: Routes = [
   { path:'index', component: IndexComponent},
   { path:'login',component: LoginComponent},
   { path:'formulaire',component: FormulaireComponent , canActivate:[MyguardGuard]},
-  { path: 'dash1',component: DashboardComponent , canActivate:[MyguardGuard]},
-  { path: 'dash',component: Dashboard2Component , canActivate:[MyguardGuard]},
+  { path: 'dashboard1',component: Dashboard1Component , canActivate:[MyguardGuard]},
+  { path: 'dashboard2',component: Dashboard2Component , canActivate:[MyguardGuard]},
   { path: 'entrer',component: EntrerComponent},
-  { path: 'dashboard',component:DashComponent},
+  { path: 'realise',component: RealiseComponent , canActivate:[MyguardGuard]},
+
 
 
   
