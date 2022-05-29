@@ -1,0 +1,25 @@
+
+    
+<mat-sidenav-container
+    class="example-container" (backdropClick)="close('backdrop')">
+  <mat-sidenav #sidenav (keydown.escape)="close('escape')" disableClose>
+    <p><button mat-button (click)="close('toggle button')">close</button></p>
+    <button>hsjgjdhjgcf</button>
+
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+      
+  
+    <div style="width:30%;margin-left: 30%;margin-top: 15px;">
+        <canvas id="myChart">  </canvas>
+        <canvas id="months">  </canvas>
+    
+       </div>
+    <p><button mat-button (click)="sidenav.open()">Open</button></p>
+   
+  </mat-sidenav-content>
+</mat-sidenav-container>
+  
+
+

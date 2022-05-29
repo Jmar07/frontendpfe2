@@ -1,3 +1,4 @@
+import { ServService } from './../serv.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -9,11 +10,22 @@ import { Router } from '@angular/router';
 })
 export class EntrerComponent implements OnInit {
   
+  admin:boolean
 
-  constructor(private router: Router) { }
+  constructor(private router: Router , private service : ServService) { }
 
   ngOnInit(): void {
+
+    if(localStorage.getItem("username") == "administrateur"){
+      this.admin = true
+    }else{
+      this.admin =false
+    }
+
+   
+
   }
+
 
   logout(){
     localStorage.removeItem("username");

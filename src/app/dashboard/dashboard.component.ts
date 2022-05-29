@@ -1,3 +1,4 @@
+import { ServService } from './../serv.service';
 import { Component, OnInit } from '@angular/core';
 import { ViewChild } from '@angular/core';
 import DatalabelsPlugin from 'chartjs-plugin-datalabels';
@@ -31,9 +32,9 @@ export class Dashboard1Component implements OnInit {
     }
   };
   public pieChartData: ChartData<'pie', number[], string | string[]> = {
-    labels: [ [ 'Download', 'Sales' ], [ 'In', 'Store', 'Sales' ], 'Mail Sales' ],
+    labels: [ [ "utilisateurs inactifs" ], [ "utilisateurs actifs" ] ],
     datasets: [ {
-      data: [ 300, 500, 100 ]
+      data: [ 300, 500 ]
     } ]
   };
   public pieChartType: ChartType = 'pie';
@@ -96,9 +97,23 @@ export class Dashboard1Component implements OnInit {
     this.chart?.render();
   }
 
-  constructor() { }
+  constructor(private service : ServService) { }
+
+  activeUsers  = 0;
+  inactiveUsers = 0;
 
   ngOnInit(): void {
+
+    this.service.getActifUsers().subscribe(data=>{
+      console.log(data);
+      
+    })
+
+    this.service.getInActifUsers().subscribe(data=>{
+      console.log(data);
+      
+    })
+
   }
 
 }

@@ -63,7 +63,7 @@ loginFun(){
       console.log(this.user);
       
 
-      localStorage.setItem("username","3aaa");
+      localStorage.setItem("username",this.loginForm.controls["username"].value);
       this.success = "Connexion réussie";
 
       setTimeout(()=>{

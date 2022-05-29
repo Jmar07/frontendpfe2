@@ -1,3 +1,5 @@
+import { AdminGuardGuard } from './admin-guard.guard';
+import { DashComponent } from './dash/dash.component';
 import { RealiseComponent } from './realise/realise.component';
 import { EntrerComponent } from './entrer/entrer.component';
 import { MyguardGuard } from './myguard.guard';
@@ -15,14 +17,10 @@ const routes: Routes = [
   { path:'index', component: IndexComponent},
   { path:'login',component: LoginComponent},
   { path:'formulaire',component: FormulaireComponent , canActivate:[MyguardGuard]},
-  { path: 'dashboard1',component: Dashboard1Component , canActivate:[MyguardGuard]},
-  { path: 'dashboard2',component: Dashboard2Component , canActivate:[MyguardGuard]},
+  { path:"dash",component : DashComponent , canActivate:[AdminGuardGuard]},
   { path: 'entrer',component: EntrerComponent},
   { path: 'realise',component: RealiseComponent , canActivate:[MyguardGuard]},
 
-
-
-  
 ];
 
 @NgModule({

@@ -43,6 +43,7 @@ import { RealiseComponent } from './realise/realise.component';
 
 import {MatTableModule} from '@angular/material/table';
 import { ModuleDialogComponent } from './module-dialog/module-dialog.component';
+import { DashComponent } from './dash/dash.component';
 
 
 
@@ -64,6 +65,7 @@ import { ModuleDialogComponent } from './module-dialog/module-dialog.component';
     EntrerComponent,
     RealiseComponent,
     ModuleDialogComponent,
+    DashComponent,
     
 
     

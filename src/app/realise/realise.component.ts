@@ -69,17 +69,7 @@ export class RealiseComponent implements OnInit {
         tabTest.push(result[0][1]["designation"])
 
         console.log(tabTest);
-
-            // for(let i=0 ; i< tabTest.length ; i++){
-            //   const temp = tabTest[i][0]["designation"];
-            //   console.log(tabTest[i]);
-              
-            //     this.tabDesModules.push(temp)
-            //     console.log(temp);
-            
-            // }
           
-
             console.log(tabTest[i]);
             this.testArrayFinal.push(tabTest[i])
             console.log(this.testArrayFinal);

@@ -71,6 +71,21 @@ export class ServService {
 
   }
 
+
+  getActifUsers(){
+    return this.http.get(this.baseURL+"activeusers");
+  }
+
+  getInActifUsers(){
+    return this.http.get(this.baseURL+"inactiveusers");
+  }
+
+  getModuleDate(){
+    return this.http.get(this.baseURL+"formdate");
+  }
+
+  
+
   /*opts = [];*/
 
 /*
