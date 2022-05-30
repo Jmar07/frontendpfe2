@@ -11,7 +11,7 @@
   </a>
     
     <a routerLink="/formulaire"> <button class="btn default">Ajouter une tâche</button></a>
-    <a *ngIf="admin" routerLink="/dash"> <button class="btn default">Tableau du bord</button></a>
+    <a routerLink="/dash"> <button class="btn default">Tableau du bord</button></a>
     <button class="btn default" type="submit" (click)="logout()" > Se déconnecter </button>
 
 
@@ -27,8 +27,8 @@
       <button mat-menu-item>
         <span>Planifiées</span>
       </button>
-      <button mat-menu-item>
-       <a routerLink="/realise"> <span>Réalisées</span></a>
+      <button mat-menu-item (click)="goToPage('realise')">
+      <span>Réalisées</span>
       </button>
     </mat-menu>
     
@@ -36,5 +36,5 @@
 
 <div class="middle">
   <a routerLink="/formulaire"> <button class="btn1">Ajouter une tâche</button></a>
-  <a *ngIf="admin" routerLink="/dash"> <button class="btn0">Tableau du bord</button></a>
+  <a routerLink="/dash"> <button class="btn0">Tableau du bord</button></a>
 </div>

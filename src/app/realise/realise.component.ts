@@ -2,6 +2,9 @@ import { ModuleDialogComponent } from './../module-dialog/module-dialog.componen
 import { ServService } from './../serv.service';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
+import { relative } from 'path';
+
 
 
 export interface Realise {
@@ -33,6 +36,7 @@ console.log(tab);
   styleUrls: ['./realise.component.css']
 })
 export class RealiseComponent implements OnInit {
+  
   
 
 
@@ -86,7 +90,7 @@ export class RealiseComponent implements OnInit {
       }
 
       let dialogRef = this.dialog.open(ModuleDialogComponent, {
-        width: '500px',
+        width: '500px', 
         data: {module : this.testArrayFinal},
       });
   
@@ -133,7 +137,7 @@ export class RealiseComponent implements OnInit {
   tabDesModules = new Array()
 
 
-  constructor(private service : ServService , public dialog : MatDialog) { }
+  constructor(private service : ServService , public dialog : MatDialog , private router: Router) { }
 
   ngOnInit(): void {
 
@@ -198,5 +202,11 @@ for(let i=0 ; i < this.modules[0].length ; i++){
   displayedColumns: string[] = ['client', 'module', 'duration', 'date'];
   
   dataSource = this.DATA;
+
+  logout(){
+    localStorage.removeItem("username");
+    this.router.navigateByUrl("/login")
+    
+  }
 
 }

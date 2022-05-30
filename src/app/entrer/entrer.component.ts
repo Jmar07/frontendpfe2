@@ -26,6 +26,10 @@ export class EntrerComponent implements OnInit {
 
   }
 
+  goToPage(pageName:string):void{
+    this.router.navigate([`${pageName}`]);
+  }
+
 
   logout(){
     localStorage.removeItem("username");

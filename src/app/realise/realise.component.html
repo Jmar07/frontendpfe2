@@ -1,6 +1,31 @@
 
+<video controls autoplay>
+  <source src="movie.mp4" type="video/mp4">
+  <source src="movie.ogg" type="video/ogg">
+  Your browser does not support the video tag.
+</video>
 
 
+<div class="toolbar" role="banner">
+
+  <a routerLink="/entrer" >
+  <img
+    width="160"
+    style="padding-left: 40px;"
+    alt="Clinisys"
+    src="https://cdn.bitrix24.com/b14232851/landing/6be/6be08191cca1b62b0df3f81ab487ade6/_1_1x.png"
+  />
+
+</a>
+<button class="btn default" type="submit" (click)="logout()" > Se déconnecter </button>
+
+
+</div>
+
+<div class="container">
+  
+  <h1 style="text-align:center ;">La liste des tâches</h1>
+  
 <table style="width: 100%;" mat-table [dataSource]="DATA" class="mat-elevation-z8">
 
     <!--- Note that these columns can be defined in any order.
@@ -8,16 +33,16 @@
   
     
     <ng-container matColumnDef="client">
-      <th mat-header-cell *matHeaderCellDef> client </th>
+      <th mat-header-cell *matHeaderCellDef> <h3><strong> Client</strong></h3> </th>
       <td mat-cell *matCellDef="let element"> {{element.clientsInput}} </td>
     </ng-container>
   
    
     <ng-container matColumnDef="module">
-      <th mat-header-cell *matHeaderCellDef> Module </th>
+      <th mat-header-cell *matHeaderCellDef> <h3><strong> Module</strong></h3> </th>
       <td mat-cell *matCellDef="let element"> 
           
-      <button (click)="openDialog(element.moduleInput)" [value]="element.moduleInput"> open me </button> 
+      <button class="mod" (click)="openDialog(element.moduleInput)" [value]="element.moduleInput" > Détails </button> 
           
     </td>
     </ng-container>
@@ -26,18 +51,19 @@
     
    
     <ng-container matColumnDef="duration">
-      <th mat-header-cell *matHeaderCellDef> Duration </th>
-      <td mat-cell *matCellDef="let element"> {{element.hours}} : {{element.minutes}} </td>
+      <th mat-header-cell *matHeaderCellDef> <h3 style="text-align:center ;"><strong> Duration</strong></h3> </th>
+      <td style="text-align:center ;" mat-cell *matCellDef="let element"> {{element.hours}}hr {{element.minutes}}min </td>
     </ng-container>
   
     
     <ng-container matColumnDef="date">
-      <th mat-header-cell *matHeaderCellDef> date </th>
-      <td mat-cell *matCellDef="let element"> {{element.dateInput}} </td>
+      <th mat-header-cell *matHeaderCellDef> <h3 style="text-align:center ;"><strong> Date de création</strong></h3> </th>
+      <td style="text-align:center ;" mat-cell *matCellDef="let element"> {{element.dateInput}} </td>
     </ng-container>
   
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
   
+</div>
   

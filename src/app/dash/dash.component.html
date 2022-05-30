@@ -1,10 +1,45 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 
+<style>
+  .material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 48
+  }
+  </style>
+
+<div class="toolbar" role="banner">
+
+  <a href="https://csys.com.tn/" target="_blank">
+  <img
+    width="160"
+    style="padding-left: 40px;"
+    alt="Clinisys"
+    src="https://cdn.bitrix24.com/b14232851/landing/6be/6be08191cca1b62b0df3f81ab487ade6/_1_1x.png"
+  />
+
+</a>
+
+
+</div>
     
 <mat-sidenav-container
+
     class="example-container" (backdropClick)="close('backdrop')">
-  <mat-sidenav #sidenav (keydown.escape)="close('escape')" disableClose>
-    <p><button mat-button (click)="close('toggle button')">close</button></p>
-    <button>hsjgjdhjgcf</button>
+  <mat-sidenav style="width: 21%;" #sidenav (keydown.escape)="close('escape')" disableClose>
+    
+    <span (click)="close('toggle button')" class="material-symbols-outlined">
+      menu
+      </span>   
+    <br><br><br>
+
+    <button class="btnn" routerLink="/formulaire">Ajout Tâche</button>
+    <button class="btn" routerLink="/formulaire">Clients Actifs / Non Actifs</button>
+    <button class="btn" routerLink="/formulaire">Tâches ajoutées par mois</button>
+
 
   </mat-sidenav>
 
@@ -16,10 +51,14 @@
         <canvas id="months">  </canvas>
     
        </div>
-    <p><button mat-button (click)="sidenav.open()">Open</button></p>
+
+       <span (click)="sidenav.open()" class="material-symbols-outlined">
+        menu
+        </span>    
    
   </mat-sidenav-content>
 </mat-sidenav-container>
+
   
 
 

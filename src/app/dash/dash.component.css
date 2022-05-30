@@ -1,10 +1,83 @@
+
+.toolbar{
+    height: 40px;
+}
+
+.toolbar img {
+    padding-top: 5px;
+    margin: 0 30px;
+
+}
+
 #divChart{
     display: block;
     width: 500px;
     height: 500px;
+    
 }
 
+/* .btn {
+    position: fixed;
+    top: 12%;
+    padding-left: 100px;
+    border-color: white;
+} */
 
-body{
-}
+.btn {
+    border: none;
+    background-color: inherit;
+    padding: 14px 30px;
+    padding-right: 130px;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    top: 0px;
+    left: 3%;
+  }
+  
+  /* On mouse-over */
+  .btn:hover {background: #eee;}
+  
+  .success {color: green;}
+  .info {color: dodgerblue;}
+  .warning {color: orange;}
+  .danger {color: red;}
+  .default {color: black;}
+
+
+  .btnn {
+    border: none;
+    background-color: inherit;
+    padding: 14px 30px;
+    padding-right: 130px;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    top: 0px;
+    left: 3%;
+    border-color: white
+  }
+  
+  /* On mouse-over */
+  .btnn:hover {background: #eee;}
+  
+
+
+
+
+.material-symbols-outlined {
+    cursor: pointer ;
+    position: fixed;
+    top: 50px;
+    left: 10px;
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 48
+  }
+
+
 

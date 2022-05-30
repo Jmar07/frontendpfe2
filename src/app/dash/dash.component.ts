@@ -92,7 +92,7 @@ this.monthsChart()
           labels: mL,
           datasets: [{
               
-              data: [5,8,5,8,5,8],
+              data: [5,8,5,8,5,8,9,15,18,15,5,10],
               
           }]
       },

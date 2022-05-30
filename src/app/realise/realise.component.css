@@ -1,0 +1,65 @@
+.toolbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    background-color: #F8F8F8;
+    color: rgb(0, 0, 0);
+    font-weight: 600;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+  }
+
+  .toolbar img {
+    margin: 0 30px;
+  }
+
+  .container{
+      padding-top: 6%;
+  }
+
+  .btn {
+    border: none;
+    background-color: inherit;
+    padding: 14px 17px;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    top: 0px;
+    left: 77%;
+  }
+  
+  /* On mouse-over */
+  .btn:hover {background: #eee;}
+  
+  .success {color: green;}
+  .info {color: dodgerblue;}
+  .warning {color: orange;}
+  .danger {color: red;}
+  .default {color: black;}
+
+  .mod {
+    border: none;
+    background-color: inherit;
+    padding: 14px 17px;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    top: 0px;
+    left: -7%;
+  }
+  
+  /* On mouse-over */
+  .mod:hover {background: #eee;}
+  
+  .success {color: green;}
+  .info {color: dodgerblue;}
+  .warning {color: orange;}
+  .danger {color: red;}
+  .default {color: black;}
+
+  
