@@ -18,7 +18,7 @@ const routes: Routes = [
   { path: 'index', component: IndexComponent },
   { path: 'login', component: LoginComponent },
   { path: 'formulaire', component: FormulaireComponent, canActivate: [MyguardGuard] },
-  { path: "dash", component: DashComponent },
+  { path: "dash", component: DashComponent, canActivate: [MyguardGuard] },
   { path: 'entrer', component: EntrerComponent },
   { path: 'realise', component: RealiseComponent, canActivate: [MyguardGuard] },
   { path: 'dash/mois', component: MoisComponent },

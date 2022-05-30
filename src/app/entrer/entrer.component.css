@@ -133,10 +133,10 @@ p {
     border-radius: 5px;
     cursor: pointer;*/
   display: block;
-  margin-top: 10px;
+  margin-top: 100px;
   width: 200px;
   position: absolute;
-  left: 1050px;
+  left: 900px;
   height: 50px;
   border-radius: 25px;
   margin: 1rem e;
@@ -179,7 +179,7 @@ p {
   margin-top: 10px;
   width: 200px;
   position: absolute;
-  left: 750px;
+  left: 900px;
   height: 50px;
   border-radius: 25px;
   margin: 1rem e;

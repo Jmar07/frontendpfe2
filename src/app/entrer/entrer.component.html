@@ -12,7 +12,7 @@
     <button class="btn default">Ajouter une tâche</button></a
   >
   <a routerLink="/dash">
-    <button class="btn default">Tableau du bord</button></a
+    <button *ngIf="admin" class="btn default">Tableau du bord</button></a
   >
   <button class="btn default" type="submit" (click)="logout()">
     Se déconnecter
@@ -40,9 +40,9 @@
     <mat-icon>more_vert</mat-icon>
   </button>
   <mat-menu #menu="matMenu">
-    <button mat-menu-item>
+<!--     <button mat-menu-item>
       <span>Planifiées</span>
-    </button>
+    </button> -->
     <button mat-menu-item (click)="goToPage('realise')">
       <span>Réalisées</span>
     </button>
@@ -53,5 +53,5 @@
   <a routerLink="/formulaire">
     <button class="btn1">Ajouter une tâche</button></a
   >
-  <a routerLink="/dash"> <button class="btn0">Tableau du bord</button></a>
+  <a routerLink="/dash" *ngIf="admin" > <button class="btn0">Tableau du bord</button></a>
 </div>
