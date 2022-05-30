@@ -1,31 +1,28 @@
-
-
-form{
-    height: 1400px;
-    width: 800px;
-    background-color: rgba(255,255,255,0.13);
-    position: relative;
-    transform: translate(-50%,-50%);
-    top: 780px;
-    left: 50%;
-    border-radius: 10px;
-    backdrop-filter: blur(10px);
-    border: 2px solid rgba(255,255,255,0.1);
-    box-shadow: 0 0 40px rgba(170, 170, 170, 0.6);
-    padding: 50px 35px;
+form {
+  height: 1400px;
+  width: 800px;
+  background-color: rgba(255, 255, 255, 0.13);
+  position: relative;
+  transform: translate(-50%, -50%);
+  top: 780px;
+  left: 50%;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 40px rgba(170, 170, 170, 0.6);
+  padding: 50px 35px;
 }
 
 @media screen and (max-width: 600px) {
-    form {
-      width: 100%;
-    }
+  form {
+    width: 100%;
   }
-@media screen and (max-height: 500px) {
-    form {
-      height: auto;
-    }
 }
-
+@media screen and (max-height: 500px) {
+  form {
+    height: auto;
+  }
+}
 
 .toolbar {
   position: absolute;
@@ -35,10 +32,10 @@ form{
   height: 60px;
   display: flex;
   align-items: center;
-  background-color: #F8F8F8;
+  background-color: #f8f8f8;
   color: rgb(0, 0, 0);
   font-weight: 600;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 }
 
 .toolbar img {
@@ -62,13 +59,25 @@ form{
 }
 
 /* On mouse-over */
-.btn:hover {background: #eee;}
+.btn:hover {
+  background: #eee;
+}
 
-.success {color: green;}
-.info {color: dodgerblue;}
-.warning {color: orange;}
-.danger {color: red;}
-.default {color: black;}
+.success {
+  color: green;
+}
+.info {
+  color: dodgerblue;
+}
+.warning {
+  color: orange;
+}
+.danger {
+  color: red;
+}
+.default {
+  color: black;
+}
 
 .example-section {
   margin: 12px 0;
@@ -83,31 +92,31 @@ ul {
   margin-top: 4px;
 }
 
-.example-user-input{
+.example-user-input {
   padding-left: 50px;
 }
 
-.endpos{
+.endpos {
   position: absolute;
   left: 400px;
   top: 33%;
 }
 
-.timepos{
-  padding-left: 200px ;
+.timepos {
+  padding-left: 200px;
 }
 
-.endpos2{
+.endpos2 {
   position: absolute;
   left: 400px;
   top: 68.2%;
 }
 
-.timepos2{
-  padding-left: 200px ;
+.timepos2 {
+  padding-left: 200px;
 }
 
-.submit{
+.submit {
   /*margin-top: 50px;
   width: 100%;
   background-color: #ebe6e6;
@@ -129,16 +138,23 @@ ul {
   font-weight: 500;
   outline: none;
   border: none;
-  background: #70e1f5;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #ffd194, #70e1f5);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #ffd194, #70e1f5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  
+  background: #70e1f5; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #ffd194,
+    #70e1f5
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #ffd194,
+    #70e1f5
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
   cursor: pointer;
   color: black;
   background-size: 200%;
-  transition: .5s;
-  
+  transition: 0.5s;
 }
-.submit:hover{
+.submit:hover {
   background-position: right;
 }

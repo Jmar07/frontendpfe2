@@ -9,18 +9,18 @@ export class AdminGuardGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-   
-   
-      if(localStorage.getItem("username") == "administrateur"){
-        console.log("MyGuard is activated");
-        
-        return true;
-       
-      }
-      
-      console.log("MyGuard is not activated! ");
 
-      return false;
+
+    if (localStorage.getItem("username") == "administrateur") {
+      console.log("MyGuard is activated");
+
+      return true;
+
+    }
+
+    console.log("MyGuard is not activated! ");
+
+    return false;
   }
-  
+
 }

@@ -1,35 +1,43 @@
 <div class="toolbar" role="banner">
+  <a href="/entrer">
+    <img
+      width="160"
+      style="padding-left: 40px"
+      alt="Clinisys"
+      src="https://cdn.bitrix24.com/b14232851/landing/6be/6be08191cca1b62b0df3f81ab487ade6/_1_1x.png"
+    />
+  </a>
 
-  <a href="/">
-  <img
-    width="160"
-    style="padding-left: 40px;"
-    alt="Clinisys"
-    src="https://cdn.bitrix24.com/b14232851/landing/6be/6be08191cca1b62b0df3f81ab487ade6/_1_1x.png"
-  />
-
-</a>
-  
-
-    <button class="btn default" type="submit" (click)="logout()" > Se déconnecter </button>
-
-
-
+  <button class="btn default" type="submit" (click)="logout()">
+    Se déconnecter
+  </button>
 </div>
 
 <form action="" (submit)="valide()" method="post" [formGroup]="formform">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+    crossorigin="anonymous"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+  />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
-  
-  
-  <div class="container">
 
-       <!--  <mat-form-field appearance="fill" style="width: 100%;">
+  <div class="container">
+    <!--  <mat-form-field appearance="fill" style="width: 100%;">
           <mat-label>Client</mat-label>
           <mat-select  formControlName="clientsInput">
             <mat-option>--</mat-option>
@@ -42,164 +50,218 @@
         </mat-form-field>
  -->
 
- <mat-form-field class="example-full-width" appearance="fill" style="width: 100%;">
-  <mat-label>Clients</mat-label>
-  <input type="text" 
-         placeholder="Choisissez un client"
-         aria-label="Number"
-         matInput
-         [formControl]="myControl"
-         [matAutocomplete]="auto"
-         >
-  <mat-autocomplete #auto="matAutocomplete"  (optionSelected)="test($event)">
-    <mat-option *ngFor="let client of clients | async " [value]="client.des">
-      {{client.des}}  
-    </mat-option>
-  </mat-autocomplete>
-</mat-form-field>
-    
-<!--         <mat-autocomplete #auto="matAutocomplete">
+    <mat-form-field
+      class="example-full-width"
+      appearance="fill"
+      style="width: 100%"
+    >
+      <mat-label>Clients</mat-label>
+      <input
+        type="text"
+        placeholder="Choisissez un client"
+        aria-label="Number"
+        matInput
+        [formControl]="myControl"
+        [matAutocomplete]="auto"
+      />
+      <mat-autocomplete #auto="matAutocomplete" (optionSelected)="test($event)">
+        <mat-option *ngFor="let client of clients | async" [value]="client.des">
+          {{ client.des }}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+
+    <!--         <mat-autocomplete #auto="matAutocomplete">
           <mat-option *ngFor="let client of clientsData" value="client.des">{{client.des}}</mat-option>
         </mat-autocomplete> -->
 
-
-    <mat-form-field appearance="fill" style="width: 100%;">
+    <mat-form-field appearance="fill" style="width: 100%">
       <mat-label>Module</mat-label>
-      <input type="hidden" formControlName="moduleValue">
-      <mat-select formControlName="moduleInput"  multiple>
-        <mat-option *ngFor="let module of modulesData" [value]="module.IdModule">{{module.designation}}</mat-option>
+      <input type="hidden" formControlName="moduleValue" />
+      <mat-select formControlName="moduleInput" multiple>
+        <mat-option
+          *ngFor="let module of modulesData"
+          [value]="module.IdModule"
+          >{{ module.designation }}</mat-option
+        >
       </mat-select>
-      <mat-error *ngIf="formform.controls['moduleInput'].touched && formform.controls['moduleInput'].invalid">
+      <mat-error
+        *ngIf="
+          formform.controls['moduleInput'].touched &&
+          formform.controls['moduleInput'].invalid
+        "
+      >
         <span> This field is required </span>
-
-        </mat-error>
+      </mat-error>
     </mat-form-field>
 
+    <mat-form-field style="width: 100%">
+      <mat-label> Personnel: </mat-label>
 
-      <mat-form-field style="width: 100%;">
-         <mat-label>
-             Personnel:
-          </mat-label>
-           
-           <mat-select formControlName="personnelInput">
-            <mat-option *ngFor="let per of pers" [value]="per.Login">{{per.Login}}</mat-option>
-          </mat-select>
-          </mat-form-field>
+      <mat-select formControlName="personnelInput">
+        <mat-option *ngFor="let per of pers" [value]="per.Login">{{
+          per.Login
+        }}</mat-option>
+      </mat-select>
+    </mat-form-field>
 
-
-          
-        <mat-form-field appearance="fill" style="width:100%;">
-          <mat-label>Accompagnant</mat-label>
-          <mat-select  formControlName="AccompanyingInput">
-            <mat-option>--</mat-option>
-            <mat-option *ngFor="let accomp of accomps" [value]="accomp.nomAcc">
-              {{accomp.nomAcc}}
-            </mat-option>
-          </mat-select>
-         <!--  <mat-error *ngIf="client.hasError('required')">Please choose a client</mat-error>
+    <mat-form-field appearance="fill" style="width: 100%">
+      <mat-label>Accompagnant</mat-label>
+      <mat-select formControlName="AccompanyingInput">
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let accomp of accomps" [value]="accomp.nomAcc">
+          {{ accomp.nomAcc }}
+        </mat-option>
+      </mat-select>
+      <!--  <mat-error *ngIf="client.hasError('required')">Please choose a client</mat-error>
           <mat-hint>{{client.value?.sound}}</mat-hint> -->
-        </mat-form-field>
-<br>
+    </mat-form-field>
+    <br />
 
-          <mat-form-field appearance="fill" style="width:100% ;">
-            <mat-label>Entrez la date de début et la date de fin</mat-label>
-            <mat-date-range-input [rangePicker]="picker">
-              <input matStartDate formControlName="startDateInput" placeholder="Date début">
-              <input matEndDate formControlName="endDateInput" placeholder="Date fin">
-            </mat-date-range-input>
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-date-range-picker #picker></mat-date-range-picker>
-          
-            <mat-error *ngIf="formform.controls['startDateInput'].hasError('matStartDateInvalid')">Date de début invalide</mat-error>
-            <mat-error *ngIf="formform.controls['endDateInput'].hasError('matEndDateInvalid')">Date de fin invalide</mat-error>
-          </mat-form-field>
-          
-          
-          <br>
+    <mat-form-field appearance="fill" style="width: 100%">
+      <mat-label>Entrez la date de début et la date de fin</mat-label>
+      <mat-date-range-input [rangePicker]="picker">
+        <input
+          matStartDate
+          formControlName="startDateInput"
+          placeholder="Date début"
+        />
+        <input
+          matEndDate
+          formControlName="endDateInput"
+          placeholder="Date fin"
+        />
+      </mat-date-range-input>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-date-range-picker #picker></mat-date-range-picker>
 
-          <label>Duration</label>
-          <mat-form-field class="example-user-input" appearance="fill">
-            <mat-label> Heures </mat-label>
-            <input matInput type="number" formControlName="hours"
-                   aria-label="Adds a delay between hovering over the button and displaying the tooltip">
-          </mat-form-field>
-          
-          <mat-form-field class="example-user" appearance="fill">
-            <mat-label>Minutes</mat-label>
-            <input matInput type="number" formControlName="minutes"
-                   aria-label="Adds a delay between hovering away from the button and hiding the tooltip">
-          </mat-form-field><br>
+      <mat-error
+        *ngIf="
+          formform.controls['startDateInput'].hasError('matStartDateInvalid')
+        "
+        >Date de début invalide</mat-error
+      >
+      <mat-error
+        *ngIf="formform.controls['endDateInput'].hasError('matEndDateInvalid')"
+        >Date de fin invalide</mat-error
+      >
+    </mat-form-field>
 
-          <div class="timepos">
-          <mat-label> Heure de début </mat-label>
-            <ngx-mat-timepicker formControlName="startTimeInput">
-            </ngx-mat-timepicker>
-          </div>
+    <br />
 
-          <div class="endpos">
-            <mat-label> Heure de fin </mat-label>
-            <ngx-mat-timepicker formControlName="endTimeInput">
-            </ngx-mat-timepicker>
-          </div>
+    <label>Duration</label>
+    <mat-form-field class="example-user-input" appearance="fill">
+      <mat-label> Heures </mat-label>
+      <input
+        matInput
+        type="number"
+        formControlName="hours"
+        aria-label="Adds a delay between hovering over the button and displaying the tooltip"
+      />
+    </mat-form-field>
 
-            <mat-form-field class="example-full-width" appearance="fill">
-              <mat-label>Numéro de feuille</mat-label>
-              <input formControlName="numberSheetInput" matInput type="number" placeholder="" value="">
-            </mat-form-field>
-            
-            <div class="sig">
-            <section class="example-section">
-              <mat-checkbox formControlName="signatureInput" class="example-margin">Signature</mat-checkbox>
-            </section>
-            </div>
+    <mat-form-field class="example-user" appearance="fill">
+      <mat-label>Minutes</mat-label>
+      <input
+        matInput
+        type="number"
+        formControlName="minutes"
+        aria-label="Adds a delay between hovering away from the button and hiding the tooltip"
+      /> </mat-form-field
+    ><br />
 
-            <input formControlName="fileInput" type="file" class="" id="attachapicture" name="pic">
-            <br>
-            <br>
-             <hr>
+    <div class="timepos">
+      <mat-label> Heure de début </mat-label>
+      <ngx-mat-timepicker formControlName="startTimeInput">
+      </ngx-mat-timepicker>
+    </div>
 
-            <div class="" style="background: none;">
-              <div class="card-body">
-                <h3 class="card-title">Transport vers le client: </h3>
-              </div>
-            </div>
+    <div class="endpos">
+      <mat-label> Heure de fin </mat-label>
+      <ngx-mat-timepicker formControlName="endTimeInput"> </ngx-mat-timepicker>
+    </div>
 
-            <mat-form-field class="example-full-width" appearance="fill" style="width:100% ;">
-              <mat-label>Nom du chauffeur</mat-label>
-              <input formControlName="chauffeurInput" matInput placeholder="" value="">
-            </mat-form-field>
-            <br>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Numéro de feuille</mat-label>
+      <input
+        formControlName="numberSheetInput"
+        matInput
+        type="number"
+        placeholder=""
+        value=""
+      />
+    </mat-form-field>
 
-            <div class="timepos2">
-              <mat-label> Heure de départ </mat-label>
-                <ngx-mat-timepicker formControlName="startTimeInput2">
-                </ngx-mat-timepicker>
-              </div>
-    
-              <div class="endpos2">
-                <mat-label> Heure d'arrivée </mat-label>
-                <ngx-mat-timepicker formControlName="endTimeInput2">
-                </ngx-mat-timepicker>
-              </div> 
+    <div class="sig">
+      <section class="example-section">
+        <mat-checkbox formControlName="signatureInput" class="example-margin"
+          >Signature</mat-checkbox
+        >
+      </section>
+    </div>
 
+    <input
+      formControlName="fileInput"
+      type="file"
+      class=""
+      id="attachapicture"
+      name="pic"
+    />
+    <br />
+    <br />
+    <hr />
 
-            <mat-form-field class="example-full-width" appearance="fill" style="width: 100%;">
-              <mat-label>Rapport d'intervention</mat-label>
-              <textarea rows="10" formControlName="rapportInput" matInput placeholder="Tapez votre rapport içi..."></textarea>
-            </mat-form-field>
+    <div class="" style="background: none">
+      <div class="card-body">
+        <h3 class="card-title">Transport vers le client:</h3>
+      </div>
+    </div>
 
-        </div>
-        <br>
-        <p *ngIf="success" style="color: darkgreen; margin-left: 10px; margin: 10px;"> {{success}} </p>
+    <mat-form-field
+      class="example-full-width"
+      appearance="fill"
+      style="width: 100%"
+    >
+      <mat-label>Nom du chauffeur</mat-label>
+      <input
+        formControlName="chauffeurInput"
+        matInput
+        placeholder=""
+        value=""
+      />
+    </mat-form-field>
+    <br />
 
+    <div class="timepos2">
+      <mat-label> Heure de départ </mat-label>
+      <ngx-mat-timepicker formControlName="startTimeInput2">
+      </ngx-mat-timepicker>
+    </div>
 
+    <div class="endpos2">
+      <mat-label> Heure d'arrivée </mat-label>
+      <ngx-mat-timepicker formControlName="endTimeInput2"> </ngx-mat-timepicker>
+    </div>
 
-  <input class="submit" type="submit"  value="Valider">
-  
-<mat-select>
-  <mat-option *ngFor="let per of userModules" [value]="per[0].designation">{{per[0].designation}}</mat-option>
-</mat-select>
- 
-  
+    <mat-form-field
+      class="example-full-width"
+      appearance="fill"
+      style="width: 100%"
+    >
+      <mat-label>Rapport d'intervention</mat-label>
+      <textarea
+        rows="10"
+        formControlName="rapportInput"
+        matInput
+        placeholder="Tapez votre rapport içi..."
+      ></textarea>
+    </mat-form-field>
+  </div>
+  <br />
+  <p *ngIf="success" style="color: darkgreen; margin-left: 10px; margin: 10px">
+    {{ success }}
+  </p>
+
+  <input class="submit" type="submit" value="Valider" />
+
 </form>
-

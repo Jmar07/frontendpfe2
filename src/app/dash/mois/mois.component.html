@@ -41,14 +41,14 @@
 
     <button class="btnn" routerLink="/formulaire">Ajouter une Tâche</button>
     <button class="btn" routerLink="/dash">Clients Actifs / Non Actifs</button>
-    <button class="btn" routerLink="/dash/mois">
+    <button class="btn" routerLink="/formulaire">
       Tâches ajoutées par mois
     </button>
   </mat-sidenav>
 
   <mat-sidenav-content>
-    <div style="width: 30%; margin-left: 30%; margin-top: 15px">
-      <canvas id="myChart"> </canvas>
+    <div style="width: 80%; margin-left: 10%; margin-top: 15px; height: 814px">
+      <canvas id="months"> </canvas>
     </div>
 
     <span (click)="sidenav.open()" class="material-symbols-outlined">

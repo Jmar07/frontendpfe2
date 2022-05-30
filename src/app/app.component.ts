@@ -3,7 +3,7 @@ import { ServService } from './serv.service';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
-import { FormControl, FormGroup, Validators, FormArray,FormBuilder } from "@angular/forms";
+import { FormControl, FormGroup, Validators, FormArray, FormBuilder } from "@angular/forms";
 
 
 
@@ -12,7 +12,7 @@ import { FormControl, FormGroup, Validators, FormArray,FormBuilder } from "@angu
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit  {
+export class AppComponent implements OnInit {
 
   title = 'projetPFE';
 
@@ -20,42 +20,42 @@ export class AppComponent implements OnInit  {
 
 
 
-  constructor( private router: Router , private http : HttpClient, private service : ServService, private fb : FormBuilder) {
+  constructor(private router: Router, private http: HttpClient, private service: ServService, private fb: FormBuilder) {
 
-   }
+  }
 
-   ngOnInit(){
-      this.getClients();
-   }
+  ngOnInit() {
+    this.getClients();
+  }
 
-   getClients(){
+  getClients() {
     this.service.getClient().subscribe((res: any) => {
       console.log(res);
     })
   }
 
-   /* getNames(){
-     this.service.getData().subscribe(response => {
-       this.options = response;
-     })
-   }
- */
-  onSend(){
-    
-  }
-
-
-  goToPage(pageName:string):void{
-    this.router.navigate([`${pageName}`]);
-  }
-  
-  testCors(){
-    this.http.get("localhost:8000/client").subscribe(res=>{
-      console.log(res);
-      
+  /* getNames(){
+    this.service.getData().subscribe(response => {
+      this.options = response;
     })
   }
-  
+*/
+  onSend() {
+
+  }
+
+
+  goToPage(pageName: string): void {
+    this.router.navigate([`${pageName}`]);
+  }
+
+  testCors() {
+    this.http.get("localhost:8000/client").subscribe(res => {
+      console.log(res);
+
+    })
+  }
+
 
 }
 

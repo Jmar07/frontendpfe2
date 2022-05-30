@@ -1,5 +1,5 @@
 
-import { FormGroup, FormBuilder , FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router, RouterModule } from '@angular/router';
@@ -15,69 +15,70 @@ import User from "../models/User";
 export class LoginComponent implements OnInit {
 
   loginForm = new FormGroup({
-    username: new FormControl(null , Validators.required),
-    password: new FormControl(null , Validators.required)    
+    username: new FormControl(null, Validators.required),
+    password: new FormControl(null, Validators.required)
   })
 
-  constructor( private formBuilder : FormBuilder, private http:HttpClient, private router: Router ) {
- }
+  constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router) {
+  }
 
- user : any;
+  user: any;
 
   ngOnInit(): void {
 
     this.user = new User();
-    
+
   }
 
-  goToPage(pageName:string):void{
+  goToPage(pageName: string): void {
     this.router.navigate([`${pageName}`]);
   }
 
-error:"";
-username:"";
-success:any
+  error: "";
+  username: "";
+  success: any
 
-redirect(){
-  this.router.navigateByUrl("/entrer")
-}
-
-
-loginFun(){
-
-  console.log(this.loginForm.controls);
-
-  if(!this.loginForm.valid){
-    console.log("leee");
-    return;
+  redirect() {
+    this.router.navigateByUrl("/entrer")
   }
-  else {
-  
 
-    this.http.post('http://localhost:8000/login',this.loginForm.value)
-  
-    .subscribe( (results)=> {
 
-      this.user = results;
+  loginFun() {
 
-      console.log(this.user);
-      
+    console.log(this.loginForm.controls);
 
-      localStorage.setItem("username",this.loginForm.controls["username"].value);
-      this.success = "Connexion réussie";
-
-      setTimeout(()=>{
-        this.redirect();
-      } , 2000)
-
-      
-    },error=>{
-      console.log(error);
-      this.error = error.error;
+    if (!this.loginForm.valid) {
+      console.log("leee");
+      return;
     }
-    
-    
-    );}
+    else {
+
+
+      this.http.post('http://localhost:8000/login', this.loginForm.value)
+
+        .subscribe((results) => {
+
+          this.user = results;
+
+          console.log(this.user);
+
+
+          localStorage.setItem("username", this.loginForm.controls["username"].value);
+          this.success = "Connexion réussie";
+
+          setTimeout(() => {
+            this.redirect();
+          }, 2000)
+
+
+        }, error => {
+          console.log(error);
+          this.error = error.error;
+        }
+
+
+        );
+    }
 
   }
 }

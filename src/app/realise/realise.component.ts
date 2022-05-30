@@ -9,19 +9,19 @@ import { relative } from 'path';
 
 export interface Realise {
   clientsInput: string;
-  moduleInput:string;
+  moduleInput: string;
   hours: number;
   minutes: number;
   dateInput: string;
 }
 
-function isExist(elem : any , tab:any []):boolean{
+function isExist(elem: any, tab: any[]): boolean {
   console.log(elem);
-console.log(tab);
+  console.log(tab);
 
-  for(let i = 0 ; i < tab.length ; i++){
-    
-    if(tab.indexOf(tab[i]) != -1){
+  for (let i = 0; i < tab.length; i++) {
+
+    if (tab.indexOf(tab[i]) != -1) {
       return true;
     }
 
@@ -36,99 +36,99 @@ console.log(tab);
   styleUrls: ['./realise.component.css']
 })
 export class RealiseComponent implements OnInit {
-  
-  
 
 
-  openDialog(module:any): void {
 
-    this.service.getModuleByIdForm(module).subscribe(data=>{
 
-    let tabModules :any = []
+  openDialog(module: any): void {
+
+    this.service.getModuleByIdForm(module).subscribe(data => {
+
+      let tabModules: any = []
 
       tabModules.push(data)
 
-      let tabTest :any = []
+      let tabTest: any = []
 
       console.log(tabModules[0]);
-      
 
-      for(let i=0 ; i < tabModules[0].length ; i++){
 
-        
+      for (let i = 0; i < tabModules[0].length; i++) {
+
+
         const idModule = tabModules[0][i]["module"]
 
         console.log(idModule);
 
-        this.service.getModulesDes(idModule).subscribe((data: { [x: string]: any; })=>{
+        this.service.getModulesDes(idModule).subscribe((data: { [x: string]: any; }) => {
 
           console.log(data);
-          
+
           var result = Object.keys(data).map((key) => [Number(key), data[key]]);
-          
+
           console.log(result[0][1]["designation"]);
-          
-        console.log(data);
-        
-        tabTest.push(result[0][1]["designation"])
 
-        console.log(tabTest);
-          
-            console.log(tabTest[i]);
-            this.testArrayFinal.push(tabTest[i])
-            console.log(this.testArrayFinal);
+          console.log(data);
 
-            
-    
+          tabTest.push(result[0][1]["designation"])
 
-      })
+          console.log(tabTest);
+
+          console.log(tabTest[i]);
+          this.testArrayFinal.push(tabTest[i])
+          console.log(this.testArrayFinal);
+
+
+
+
+        })
 
         console.log(this.tabDesModules);
-        
-        
+
+
 
       }
 
       let dialogRef = this.dialog.open(ModuleDialogComponent, {
-        width: '500px', 
-        data: {module : this.testArrayFinal},
+        width: '500px',
+        data: { module: this.testArrayFinal },
       });
-  
+
       dialogRef.afterClosed().subscribe(result => {
         console.log('The dialog was closed');
         this.testArrayFinal = [];
         console.log(this.tabDesModules);
-        
+
       });
-      
 
-//       let arr :any = []
-// console.log(this.tabDesModules.length);
 
-//       for(let i=0 ; i < this.tabDesModules.length ; i++){
+      //       let arr :any = []
+      // console.log(this.tabDesModules.length);
 
-//           if(isExist(this.tabDesModules[i] , this.tabDesModules)){
-// console.log("if");
+      //       for(let i=0 ; i < this.tabDesModules.length ; i++){
 
-//             }else{
-//               console.log("else");
-              
-//               arr.push(this.tabDesModules[i])
-//             }
-//       }
-// console.log(arr);
+      //           if(isExist(this.tabDesModules[i] , this.tabDesModules)){
+      // console.log("if");
 
-//       console.log(this.tabDesModules);
+      //             }else{
+      //               console.log("else");
+
+      //               arr.push(this.tabDesModules[i])
+      //             }
+      //       }
+      // console.log(arr);
+
+      //       console.log(this.tabDesModules);
     })
 
-    
 
 
-    
+
+
   }
-  
-  
-  DATA:any = []
+
+
+  DATA: any = []
   modules = new Array()
   forms = new Array()
   modulesDes = new Array()
@@ -137,76 +137,76 @@ export class RealiseComponent implements OnInit {
   tabDesModules = new Array()
 
 
-  constructor(private service : ServService , public dialog : MatDialog , private router: Router) { }
+  constructor(private service: ServService, public dialog: MatDialog, private router: Router) { }
 
   ngOnInit(): void {
 
-    this.service.getListOfForms().subscribe(data=>{
+    this.service.getListOfForms().subscribe(data => {
 
       console.log(data);
       this.DATA = data
       this.forms.push(data)
 
-      for(let i=0 ; i < this.forms.length ; i++){
+      for (let i = 0; i < this.forms.length; i++) {
         //console.log(this.forms[i]["clientsInput"]);
         this.modules.push(this.forms[i])
-        
+
       }
 
-console.log(this.modules[0].length);
+      console.log(this.modules[0].length);
 
-for(let i=0 ; i < this.modules[0].length ; i++){
+      for (let i = 0; i < this.modules[0].length; i++) {
 
-  const actualmodule = this.modules[0][i]["moduleInput"];
+        const actualmodule = this.modules[0][i]["moduleInput"];
 
-   //console.log(this.modules[0][i]["moduleInput"]);
-   
-  this.service.getModuleByIdForm(actualmodule).subscribe(data=>{
-    //console.log(data);
+        //console.log(this.modules[0][i]["moduleInput"]);
 
-    this.modulesDes.push(data)
+        this.service.getModuleByIdForm(actualmodule).subscribe(data => {
+          //console.log(data);
 
-    for(let i=0 ; i < this.modulesDes.length ; i++){
+          this.modulesDes.push(data)
 
-      console.log(this.modulesDes[i][0]["module"]);
-      
-    
-      this.service.getModulesDes(this.modulesDes[i][0]["module"]).subscribe((data: any)=>{
-        console.log(data);
+          for (let i = 0; i < this.modulesDes.length; i++) {
 
-        this.finalModules.push(data)
-
-        console.log(this.finalModules);
-        
-
-      })
-
-    }
-    
-    
-  })
+            console.log(this.modulesDes[i][0]["module"]);
 
 
-}
+            this.service.getModulesDes(this.modulesDes[i][0]["module"]).subscribe((data: any) => {
+              console.log(data);
+
+              this.finalModules.push(data)
+
+              console.log(this.finalModules);
+
+
+            })
+
+          }
+
+
+        })
+
+
+      }
 
     })
 
-    this.service.getModules().subscribe(data=>{
+    this.service.getModules().subscribe(data => {
       console.log(data);
 
-    
+
     })
 
   }
 
   displayedColumns: string[] = ['client', 'module', 'duration', 'date'];
-  
+
   dataSource = this.DATA;
 
-  logout(){
+  logout() {
     localStorage.removeItem("username");
     this.router.navigateByUrl("/login")
-    
+
   }
 
 }

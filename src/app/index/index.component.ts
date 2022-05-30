@@ -14,13 +14,13 @@ declare const myTest: any;
 })
 export class IndexComponent implements OnInit {
 
-  
 
-  goToPage(pageName:string):void{
+
+  goToPage(pageName: string): void {
     this.router.navigate([`${pageName}`]);
   }
 
-  onClick(){
+  onClick() {
     myTest();
   }
 

@@ -14,13 +14,13 @@ interface DialogData {
 })
 export class ModuleDialogComponent implements OnInit {
 
-  constructor(public dialog : MatDialog , @Inject(MAT_DIALOG_DATA) public data: DialogData) { }
+  constructor(public dialog: MatDialog, @Inject(MAT_DIALOG_DATA) public data: DialogData) { }
 
   ngOnInit(): void {
     console.log(this.data.module);
-    
+
   }
 
- 
+
 
 }

@@ -1,16 +1,15 @@
 import { MatSidenav } from '@angular/material/sidenav';
-import { ServService } from './../serv.service';
+import { ServService } from '../../serv.service';
 import { ChartData, ChartType, ChartConfiguration, Chart } from 'chart.js';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Utils } from 'angular-bootstrap-md/lib/free/utils';
 
-
 @Component({
-  selector: 'app-dash',
-  templateUrl: './dash.component.html',
-  styleUrls: ['./dash.component.css']
+  selector: 'app-mois',
+  templateUrl: './mois.component.html',
+  styleUrls: ['./mois.component.css']
 })
-export class DashComponent implements OnInit {
+export class MoisComponent implements OnInit {
 
   activUsers: any;
   inactivuser: any;
@@ -74,7 +73,7 @@ export class DashComponent implements OnInit {
       this.inactivuser = result[0][1]["count(*)"];
 
 
-      this.myChart();
+      this.monthsChart()
 
     })
 
@@ -82,33 +81,25 @@ export class DashComponent implements OnInit {
   }
 
 
+  monthsChart() {
+    var mL = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
-
-
-
-  myChart() {
-    console.log("my chart");
-
-    let myChart = new Chart("myChart", {
-      type: 'doughnut',
+    let myChart = new Chart("months", {
+      type: 'bar',
       data: {
-        labels: ['utilisateurs inactifs', "utilisateurs actifs"],
+        labels: mL,
         datasets: [{
 
-          data: [this.inactivuser, this.activUsers],
-          backgroundColor: [
-            'darkred',
-            'lightblue',
-          ],
-          hoverOffset: 2,
-          hoverBackgroundColor: [
-            'darkred',
-            'blue',
-          ]
+          data: [5, 8, 5, 8, 5, 8, 9, 15, 18, 15, 5, 10],
 
         }]
       },
     });
+
   }
+
+
+
+
 
 }

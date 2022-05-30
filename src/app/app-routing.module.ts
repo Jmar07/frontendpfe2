@@ -1,3 +1,4 @@
+import { MoisComponent } from './dash/mois/mois.component';
 import { AdminGuardGuard } from './admin-guard.guard';
 import { DashComponent } from './dash/dash.component';
 import { RealiseComponent } from './realise/realise.component';
@@ -13,13 +14,14 @@ import { FormulaireComponent } from '../app/formulaire/formulaire.component'
 
 const routes: Routes = [
 
-  { path:'', redirectTo:"index" , pathMatch:"full"},
-  { path:'index', component: IndexComponent},
-  { path:'login',component: LoginComponent},
-  { path:'formulaire',component: FormulaireComponent , canActivate:[MyguardGuard]},
-  { path:"dash",component : DashComponent , canActivate:[AdminGuardGuard]},
-  { path: 'entrer',component: EntrerComponent},
-  { path: 'realise',component: RealiseComponent , canActivate:[MyguardGuard]},
+  { path: '', redirectTo: "index", pathMatch: "full" },
+  { path: 'index', component: IndexComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'formulaire', component: FormulaireComponent, canActivate: [MyguardGuard] },
+  { path: "dash", component: DashComponent },
+  { path: 'entrer', component: EntrerComponent },
+  { path: 'realise', component: RealiseComponent, canActivate: [MyguardGuard] },
+  { path: 'dash/mois', component: MoisComponent },
 
 ];
 

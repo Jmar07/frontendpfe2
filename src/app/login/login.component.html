@@ -1,75 +1,98 @@
-
 <html lang="en">
-    <head>
-        <title>Fiche d'intervention</title>
-    </head>
-    <body>
-
-      <div class="toolbar" role="banner">
-
-        <a href="/" >
+  <head>
+    <title>Fiche d'intervention</title>
+  </head>
+  <body>
+    <div class="toolbar" role="banner">
+      <a href="/">
         <img
           width="160"
-          style="padding-left: 40px;"
+          style="padding-left: 40px"
           alt="Clinisys"
           src="https://cdn.bitrix24.com/b14232851/landing/6be/6be08191cca1b62b0df3f81ab487ade6/_1_1x.png"
         />
-      
       </a>
-        
-    
-         
+    </div>
+
+    <div class="background">
+      <div class="shape"></div>
+      <div class="shape"></div>
+    </div>
+
+    <form [formGroup]="loginForm" (submit)="loginFun()">
+      <a href="https://csys.com.tn/" target="_blank"
+        ><img
+          src="https://cdn.bitrix24.com/b14232851/landing/6be/6be08191cca1b62b0df3f81ab487ade6/_1_1x.png"
+          class="logo"
+      /></a>
+      <b
+        ><p
+          style="
+            color: #2393b7;
+            letter-spacing: 3px;
+            line-height: 70px;
+            margin: auto;
+            padding-left: 70px;
+          "
+        >
+          Fiche d'intervention
+        </p></b
+      >
+
+      <div>
+        <mat-form-field
+          class="example-full-width"
+          style="width: 100%"
+          appearance="fill"
+        >
+          <mat-label>Nom d'utilisateur</mat-label>
+          <input matInput formControlName="username" />
+          <mat-error
+            *ngIf="
+              loginForm.controls['username'].touched &&
+              loginForm.controls['username'].invalid
+            "
+          >
+            <span> This field is required </span>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field
+          class="example-full-width"
+          style="width: 100%"
+          appearance="fill"
+        >
+          <mat-label>Mot de passe</mat-label>
+          <input matInput formControlName="password" type="password" />
+          <mat-error
+            *ngIf="
+              loginForm.controls['password'].touched &&
+              loginForm.controls['password'].invalid
+            "
+          >
+            <span> This field is required </span>
+          </mat-error>
+        </mat-form-field>
+        <p
+          *ngIf="error"
+          style="color: darkred; margin-left: 10px; margin: 10px"
+        >
+          {{ error }}
+        </p>
+        <p
+          *ngIf="success"
+          style="color: darkgreen; margin-left: 10px; margin: 10px"
+        >
+          {{ success }}
+        </p>
       </div>
-      
-        <div class="background">
-            <div class="shape"></div>
-            <div class="shape"></div>
-        </div>
-        
 
-       
-        
-        <form [formGroup]="loginForm" (submit)="loginFun()" >
+      <button type="submit" (click)="loginFun()">Connexion</button>
+      <ul>
+        <li class="prev" (click)="goToPage('/')"><span></span></li>
+      </ul>
 
-          
-          
-            <a href="https://csys.com.tn/" target="_blank"><img src="https://cdn.bitrix24.com/b14232851/landing/6be/6be08191cca1b62b0df3f81ab487ade6/_1_1x.png" class="logo"></a>
-            <b><p style="color:#2393b7; letter-spacing: 3px; line-height: 70px; margin: auto; padding-left: 70px;" >Fiche d'intervention</p></b>
-  
-               <div>   
-
-                <mat-form-field  class="example-full-width" style="width: 100%;" appearance="fill">
-                  <mat-label>Nom d'utilisateur</mat-label>
-                  <input matInput formControlName="username" >
-                  <mat-error *ngIf="loginForm.controls['username'].touched && loginForm.controls['username'].invalid">
-                    <span> This field is required </span>
-            
-                    </mat-error>
-
-                </mat-form-field> 
-
-                <mat-form-field  class="example-full-width" style="width: 100%;" appearance="fill">
-                  <mat-label>Mot de passe</mat-label>
-                  <input matInput formControlName="password" type="password" >
-                  <mat-error *ngIf="loginForm.controls['password'].touched && loginForm.controls['password'].invalid">
-                    <span> This field is required </span>
-            
-                    </mat-error>
-                </mat-form-field> 
-                <p *ngIf="error" style="color: darkred; margin-left: 10px; margin: 10px;"> {{error}} </p>
-                <p *ngIf="success" style="color: darkgreen; margin-left: 10px; margin: 10px;"> {{success}} </p>
-                
-                
-               </div>
-                
-               
-            <button type="submit" (click)="loginFun()">Connexion</button>
-            <ul>
-              <li class="prev" (click)="goToPage('/')"><span></span></li>
-            </ul>
-
-            
-            <!--<div class="lang">
+      <!--<div class="lang">
               <div class="selected-lang">
                 fr
               </div>
@@ -90,7 +113,6 @@
               </ul>
             </div>
           -->
-    
-        </form>
-    </body>
-    </html>
+    </form>
+  </body>
+</html>

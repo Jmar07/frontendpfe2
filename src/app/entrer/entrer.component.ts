@@ -9,32 +9,32 @@ import { Router } from '@angular/router';
   styleUrls: ['./entrer.component.css']
 })
 export class EntrerComponent implements OnInit {
-  
-  admin:boolean
 
-  constructor(private router: Router , private service : ServService) { }
+  admin: boolean
+
+  constructor(private router: Router, private service: ServService) { }
 
   ngOnInit(): void {
 
-    if(localStorage.getItem("username") == "administrateur"){
+    if (localStorage.getItem("username") == "administrateur") {
       this.admin = true
-    }else{
-      this.admin =false
+    } else {
+      this.admin = false
     }
 
-   
+
 
   }
 
-  goToPage(pageName:string):void{
+  goToPage(pageName: string): void {
     this.router.navigate([`${pageName}`]);
   }
 
 
-  logout(){
+  logout() {
     localStorage.removeItem("username");
     this.router.navigateByUrl("/login")
-    
+
   }
 
 }
